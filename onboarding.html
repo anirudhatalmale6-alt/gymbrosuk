@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Build your profile — GymBrosUK</title>
+<meta name="description" content="GymBrosUK turns solo, headphones-in gym culture into real brotherhood. Find your crew, share the journey in The Forge, track the iron in The Smith. Free to join, UK wide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/gbuk.css">
+
+</head>
+<body><div style="background:#1E293B;border-bottom:1px solid rgba(148,163,184,.25);padding:9px 16px;text-align:center;font:600 13px/1.5 Manrope,sans-serif;color:#CBD5E1">PREVIEW &mdash; design only. Everyone in here is invented so the screens have something in them.</div>
+
+<header class="topbar">
+  <div class="wrap inner">
+    <a href="index.html" class="brand">
+      <span class="mark">GB</span>
+      <span class="name">GymBrosUK</span>
+    </a>
+
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <a href="crew.html" >The Crew</a>
+      <a href="forge.html" >The Forge</a>
+      <a href="smith.html" >The Smith</a>
+      <a href="quick-sessions.html" >Quick Sessions</a>
+    </nav>
+
+    <div class="actions">
+      
+        <a class="iconbtn" href="notifications.html" aria-label="Notifications" title="Notifications">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+          
+        </a>
+        <a class="iconbtn" href="messages.html" aria-label="Messages" title="Messages">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          
+        </a>
+        <a class="btn btn-ghost btn-sm" href="dashboard.html">Dashboard</a>
+      
+    </div>
+  </div>
+</header>
+
+
+<div class="wrap" style="max-width:760px;padding:clamp(36px,5vw,72px) var(--gut)">
+  <span class="eyebrow">Step 1 of 1 &middot; about two minutes</span>
+  <h1 style="margin-top:14px;font-size:clamp(28px,3.4vw,40px)">Build your training identity</h1>
+  <p style="margin-top:14px">This is what Crew Finder works off. Goals first, then the nights you train, then where. You can change any of it later.</p>
+  <form method="post" style="margin-top:30px">
+    <input type="hidden" name="csrfmiddlewaretoken" value="pAwyL7NVsFFNbLgpnHwzwCMIPjtIs06qOL4uThLVwVa95YzmQ8cwcaWxBezuHLxm">
+    <div class="panel panel-pad" style="margin-bottom:16px">
+      <h3 style="margin-bottom:18px">What are you after?</h3>
+      <div class="field-row">
+        <div class="field"><label for="id_goal">Main goal</label><select name="goal" id="id_goal">
+  <option value="strength" selected>Get stronger</option>
+
+  <option value="muscle">Build muscle</option>
+
+  <option value="fat_loss">Lose fat</option>
+
+  <option value="powerlifting">Powerlifting</option>
+
+  <option value="endurance">Endurance / conditioning</option>
+
+  <option value="general">General fitness</option>
+
+  <option value="return">Getting back into it</option>
+
+</select></div>
+        <div class="field"><label for="id_secondary_goal">Anything else</label><select name="secondary_goal" id="id_secondary_goal">
+  <option value="" selected>---------</option>
+
+  <option value="strength">Get stronger</option>
+
+  <option value="muscle">Build muscle</option>
+
+  <option value="fat_loss">Lose fat</option>
+
+  <option value="powerlifting">Powerlifting</option>
+
+  <option value="endurance">Endurance / conditioning</option>
+
+  <option value="general">General fitness</option>
+
+  <option value="return">Getting back into it</option>
+
+</select></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="id_experience">How long have you trained?</label><select name="experience" id="id_experience">
+  <option value="new">First few months</option>
+
+  <option value="some">A year or so</option>
+
+  <option value="solid" selected>A few years</option>
+
+  <option value="veteran">Long time under the bar</option>
+
+</select></div>
+        <div class="field"><label for="id_intensity">How hard do you go?</label><select name="intensity" id="id_intensity">
+  <option value="steady">Steady and consistent</option>
+
+  <option value="hard" selected>Hard sessions</option>
+
+  <option value="brutal">Leave nothing in the tank</option>
+
+</select></div>
+      </div>
+    </div>
+
+    <div class="panel panel-pad" style="margin-bottom:16px">
+      <h3 style="margin-bottom:18px">When do you train?</h3>
+      <div class="field">
+        <label>Which nights?</label>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><div id="id_days"><div>
+    <label for="id_days_0"><input type="checkbox" name="days" value="mon" id="id_days_0" checked>
+ Monday</label>
+
+</div><div>
+    <label for="id_days_1"><input type="checkbox" name="days" value="tue" id="id_days_1">
+ Tuesday</label>
+
+</div><div>
+    <label for="id_days_2"><input type="checkbox" name="days" value="wed" id="id_days_2" checked>
+ Wednesday</label>
+
+</div><div>
+    <label for="id_days_3"><input type="checkbox" name="days" value="thu" id="id_days_3">
+ Thursday</label>
+
+</div><div>
+    <label for="id_days_4"><input type="checkbox" name="days" value="fri" id="id_days_4" checked>
+ Friday</label>
+
+</div><div>
+    <label for="id_days_5"><input type="checkbox" name="days" value="sat" id="id_days_5">
+ Saturday</label>
+
+</div><div>
+    <label for="id_days_6"><input type="checkbox" name="days" value="sun" id="id_days_6">
+ Sunday</label>
+
+</div>
+</div></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="id_sessions_per_week">Sessions a week</label><input type="number" name="sessions_per_week" value="4" min="0" required id="id_sessions_per_week"></div>
+        <div class="field"><label>Time of day</label>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;font-size:14px">
+            <label style="display:flex;gap:7px;align-items:center;font-weight:500"><input type="checkbox" name="trains_mornings" id="id_trains_mornings"> Mornings</label>
+            <label style="display:flex;gap:7px;align-items:center;font-weight:500"><input type="checkbox" name="trains_daytime" id="id_trains_daytime"> Daytime</label>
+            <label style="display:flex;gap:7px;align-items:center;font-weight:500"><input type="checkbox" name="trains_evenings" id="id_trains_evenings" checked> Evenings</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-pad" style="margin-bottom:16px">
+      <h3 style="margin-bottom:18px">Where do you train?</h3>
+      <div class="field-row">
+        <div class="field"><label for="id_gym_name">Your gym</label><input type="text" name="gym_name" value="Ironworks Strength" maxlength="120" id="id_gym_name"><span class="hint">Set this once and Crew Finder shows you who else is in there.</span></div>
+        <div class="field"><label for="id_gym_town">Town or city</label><input type="text" name="gym_town" value="Leeds" maxlength="80" id="id_gym_town"></div>
+      </div>
+      <div class="field"><label for="id_travel_miles">How far would you travel? (miles)</label><input type="number" name="travel_miles" value="5" min="0" required aria-describedby="id_travel_miles_helptext" id="id_travel_miles"></div>
+    </div>
+
+    <div class="panel panel-pad" style="margin-bottom:20px">
+      <h3 style="margin-bottom:18px">A bit about you</h3>
+      <div class="field-row">
+        <div class="field"><label for="id_age">Age</label><input type="number" name="age" value="27" min="0" id="id_age"></div>
+        <div class="field"><label for="id_vibe">What are you like in the gym?</label><select name="vibe" id="id_vibe">
+  <option value="quiet">Head down, minimal chat</option>
+
+  <option value="balanced" selected>Bit of both</option>
+
+  <option value="social">Chatty, in it for the crack</option>
+
+</select></div>
+      </div>
+      <div class="field"><label for="id_bio">Anything the lads should know</label><textarea name="bio" cols="40" rows="10" maxlength="600" id="id_bio">
+Four days a week, in and out in an hour. No messing.</textarea></div>
+      <div class="field"><label for="id_heard_about_us">How did you hear about GymBrosUK?</label><input type="text" name="heard_about_us" maxlength="120" aria-describedby="id_heard_about_us_helptext" id="id_heard_about_us"></div>
+    </div>
+
+    <button class="btn btn-primary btn-block" type="submit">Find my crew</button>
+  </form>
+</div>
+
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a href="index.html" class="brand"><span class="mark">GB</span><span class="name">GymBrosUK</span></a>
+        <p class="muted" style="margin-top:16px;max-width:34ch;font-size:14.5px">
+          Solving men's isolation through the gym. The Crew, The Forge and The Smith &mdash; free, UK wide.
+        </p>
+      </div>
+      <div>
+        <h4>The app</h4>
+        <ul>
+          <li><a href="crew.html">The Crew</a></li>
+          <li><a href="forge.html">The Forge</a></li>
+          <li><a href="smith.html">The Smith</a></li>
+          <li><a href="quick-sessions.html">Quick Sessions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Brotherhood</h4>
+        <ul>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="guidelines.html">Community guidelines</a></li>
+          <li><a href="support.html">Get support</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bot">
+      <span>&copy; 2026 GymBrosUK. Made in the UK.</span>
+      <span class="r">Brotherhood over headphones.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var items = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    items.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{rootMargin:'0px 0px -8% 0px',threshold:.06});
+  items.forEach(function(el,i){
+    el.style.transitionDelay = Math.min(i%6*70,350) + 'ms';
+    io.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>

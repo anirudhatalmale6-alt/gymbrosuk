@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign in — GymBrosUK</title>
+<meta name="description" content="GymBrosUK turns solo, headphones-in gym culture into real brotherhood. Find your crew, share the journey in The Forge, track the iron in The Smith. Free to join, UK wide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/gbuk.css">
+
+</head>
+<body><div style="background:#1E293B;border-bottom:1px solid rgba(148,163,184,.25);padding:9px 16px;text-align:center;font:600 13px/1.5 Manrope,sans-serif;color:#CBD5E1">PREVIEW &mdash; design only. Everyone in here is invented so the screens have something in them.</div>
+
+<header class="topbar">
+  <div class="wrap inner">
+    <a href="index.html" class="brand">
+      <span class="mark">GB</span>
+      <span class="name">GymBrosUK</span>
+    </a>
+
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <a href="crew.html" >The Crew</a>
+      <a href="forge.html" >The Forge</a>
+      <a href="smith.html" >The Smith</a>
+      <a href="quick-sessions.html" >Quick Sessions</a>
+    </nav>
+
+    <div class="actions">
+      
+        <a class="iconbtn" href="notifications.html" aria-label="Notifications" title="Notifications">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+          
+        </a>
+        <a class="iconbtn" href="messages.html" aria-label="Messages" title="Messages">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          
+        </a>
+        <a class="btn btn-ghost btn-sm" href="dashboard.html">Dashboard</a>
+      
+    </div>
+  </div>
+</header>
+
+
+<div class="wrap" style="max-width:520px;padding:clamp(40px,6vw,80px) var(--gut)">
+  <div class="panel panel-pad" style="padding:clamp(26px,3vw,38px)">
+    <span class="eyebrow">Welcome back</span>
+    <h1 style="font-size:clamp(26px,3vw,34px);margin-top:14px">Sign in</h1>
+    
+    <div style="margin-top:26px">
+<form method="post">
+  <input type="hidden" name="csrfmiddlewaretoken" value="J4lgqIGacu4T7X3THU70zndDMN1clWTY8fTcySEagKzf1amQalNXfVnsyI7YAHkU">
+  
+  <div class="field"><label for="id_username">Email</label><input type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username"></div>
+  <div class="field"><label for="id_password">Password</label><input type="password" name="password" autocomplete="current-password" required id="id_password"></div>
+  <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+</form>
+<p class="meta" style="margin-top:16px"><a href="/password-reset/" style="text-decoration:underline">Forgotten your password?</a></p>
+<p class="meta" style="margin-top:8px">No account? <a href="signup.html" style="text-decoration:underline">Join the Brotherhood</a>.</p>
+</div>
+  </div>
+  
+</div>
+
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a href="index.html" class="brand"><span class="mark">GB</span><span class="name">GymBrosUK</span></a>
+        <p class="muted" style="margin-top:16px;max-width:34ch;font-size:14.5px">
+          Solving men's isolation through the gym. The Crew, The Forge and The Smith &mdash; free, UK wide.
+        </p>
+      </div>
+      <div>
+        <h4>The app</h4>
+        <ul>
+          <li><a href="crew.html">The Crew</a></li>
+          <li><a href="forge.html">The Forge</a></li>
+          <li><a href="smith.html">The Smith</a></li>
+          <li><a href="quick-sessions.html">Quick Sessions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Brotherhood</h4>
+        <ul>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="guidelines.html">Community guidelines</a></li>
+          <li><a href="support.html">Get support</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bot">
+      <span>&copy; 2026 GymBrosUK. Made in the UK.</span>
+      <span class="r">Brotherhood over headphones.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var items = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    items.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{rootMargin:'0px 0px -8% 0px',threshold:.06});
+  items.forEach(function(el,i){
+    el.style.transitionDelay = Math.min(i%6*70,350) + 'ms';
+    io.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>
