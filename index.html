@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GymBrosUK — Find your training crew. Train harder. Gain a brother.</title>
+<meta name="description" content="GymBrosUK turns solo, headphones-in gym culture into real brotherhood. Find your training crew, share the journey in The Forge, track the iron in The Smith. Free to join, UK wide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#000000;
+  --pit:#050607;
+  --slate-900:#0F1418;
+  --slate-800:#1E293B;
+  --slate-700:#334155;
+  --slate-500:#64748B;
+  --slate-300:#94A3B8;
+  --white:#FFFFFF;
+  --rule:rgba(148,163,184,.16);
+  --rule-hard:rgba(148,163,184,.32);
+  --display:'Archivo Black',Helvetica,Arial,sans-serif;
+  --cond:'Barlow Condensed',Helvetica,Arial,sans-serif;
+  --body:'Barlow',Helvetica,Arial,sans-serif;
+  --gut:clamp(20px,4vw,64px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--black);color:var(--white);
+  font-family:var(--body);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ---------- grain ---------- */
+body::after{
+  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--gut)}
+.eyebrow{
+  font-family:var(--body);font-size:11px;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--slate-500);
+}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.02em;line-height:.94;text-transform:uppercase}
+
+/* ---------- nav ---------- */
+header{
+  position:sticky;top:0;z-index:100;background:rgba(0,0,0,.82);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--rule);
+}
+.nav{display:flex;align-items:center;gap:36px;height:74px}
+.mark{
+  font-family:var(--display);font-size:19px;letter-spacing:.04em;
+  background:var(--white);color:var(--black);padding:9px 14px 7px;line-height:1;
+}
+.nav ul{display:flex;gap:30px;list-style:none;margin-left:8px}
+.nav ul a{
+  font-family:var(--cond);font-size:16px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--slate-300);transition:color .18s;
+}
+.nav ul a:hover{color:var(--white)}
+.nav .right{margin-left:auto;display:flex;align-items:center;gap:22px}
+.signin{
+  font-family:var(--cond);font-size:16px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--slate-300);
+}
+.signin:hover{color:var(--white)}
+.btn{
+  display:inline-block;font-family:var(--cond);font-weight:800;letter-spacing:.11em;
+  text-transform:uppercase;font-size:16px;padding:14px 26px 12px;border:1px solid transparent;
+  transition:transform .16s cubic-bezier(.2,.7,.3,1),background .18s,color .18s,border-color .18s;
+}
+.btn-solid{background:var(--white);color:var(--black)}
+.btn-solid:hover{transform:translateY(-2px)}
+.btn-ghost{border-color:var(--rule-hard);color:var(--white)}
+.btn-ghost:hover{border-color:var(--white);transform:translateY(-2px)}
+.btn-sm{font-size:14px;padding:11px 20px 9px}
+.navtoggle{display:none;background:none;border:0;color:#fff;font-size:26px;margin-left:auto;cursor:pointer}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:clamp(64px,8vw,104px) 0 clamp(56px,6vw,84px);overflow:hidden}
+.hero::before{ /* light shaft */
+  content:"";position:absolute;top:-30%;left:50%;width:150vw;height:120%;
+  transform:translateX(-50%) rotate(-14deg);
+  background:linear-gradient(90deg,transparent 0%,rgba(148,163,184,.09) 38%,rgba(203,213,225,.13) 50%,rgba(148,163,184,.07) 62%,transparent 100%);
+  filter:blur(60px);pointer-events:none;
+}
+.hero::after{ /* floor fade */
+  content:"";position:absolute;inset:auto 0 0 0;height:55%;
+  background:linear-gradient(180deg,transparent,var(--black));pointer-events:none;
+}
+.hero .wrap{position:relative;z-index:2}
+.hero-kicker{display:flex;align-items:center;gap:14px;margin-bottom:30px}
+.hero-kicker .line{height:1px;width:56px;background:var(--rule-hard)}
+h1{
+  font-size:clamp(44px,8.4vw,114px);
+  letter-spacing:-.035em;
+}
+h1 .dim{color:var(--slate-700)}
+.hero-lede{
+  max-width:660px;margin-top:32px;font-size:clamp(17px,1.65vw,21px);
+  color:var(--slate-300);line-height:1.55;
+}
+.hero-lede strong{color:var(--white);font-weight:600}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.hero-note{margin-top:20px;font-size:14px;color:var(--slate-500);letter-spacing:.02em}
+
+/* ---------- crisis band ---------- */
+.crisis{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--pit)}
+.crisis .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.stat{padding:clamp(38px,5vw,64px) clamp(18px,3vw,44px);border-left:1px solid var(--rule)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat .fig{
+  font-family:var(--display);font-size:clamp(40px,5.6vw,76px);line-height:.9;
+  letter-spacing:-.03em;
+}
+.stat p{margin-top:14px;color:var(--slate-500);font-size:15px;line-height:1.45;max-width:23ch}
+.stat .src{display:block;margin-top:8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-700)}
+
+/* ---------- sections ---------- */
+section{padding:clamp(62px,7.4vw,108px) 0}
+.sec-head{max-width:900px;margin-bottom:clamp(44px,6vw,76px)}
+.sec-head h2{font-size:clamp(34px,5.6vw,72px);margin-top:22px}
+.sec-head p{margin-top:26px;color:var(--slate-300);font-size:clamp(16px,1.5vw,19px);max-width:62ch}
+
+/* mission */
+.mission{background:var(--pit);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.mission blockquote{
+  font-family:var(--display);font-size:clamp(30px,5vw,64px);line-height:1.02;
+  letter-spacing:-.025em;text-transform:uppercase;max-width:18ch;
+}
+.mission blockquote span{color:var(--slate-700)}
+.mission .cols{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,90px);align-items:end}
+.mission .cols p{color:var(--slate-300);font-size:17px;line-height:1.65}
+.mission .cols p + p{margin-top:18px}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule)}
+.pillar{
+  padding:clamp(32px,3.4vw,52px) clamp(24px,2.6vw,44px) clamp(40px,4vw,60px);
+  border-left:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  position:relative;transition:background .3s;
+}
+.pillar:first-child{border-left:0}
+.pillar:hover{background:var(--slate-900)}
+.pillar .num{
+  font-family:var(--cond);font-size:13px;font-weight:800;letter-spacing:.24em;
+  color:var(--slate-700);
+}
+.pillar h3{font-size:clamp(26px,2.7vw,38px);margin:18px 0 4px}
+.pillar .tag{
+  font-family:var(--cond);font-size:15px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--slate-500);
+}
+.pillar p{margin-top:20px;color:var(--slate-300);font-size:16px;line-height:1.6}
+.pillar ul{margin-top:22px;list-style:none;display:grid;gap:9px}
+.pillar li{
+  font-size:14.5px;color:var(--slate-500);padding-left:18px;position:relative;
+}
+.pillar li::before{
+  content:"";position:absolute;left:0;top:10px;width:8px;height:1px;background:var(--slate-700);
+}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,56px)}
+.step{border-top:2px solid var(--white);padding-top:26px}
+.step:nth-child(2){border-top-color:var(--slate-700)}
+.step:nth-child(3){border-top-color:var(--slate-800)}
+.step .n{font-family:var(--display);font-size:clamp(38px,4.4vw,60px);line-height:1;letter-spacing:-.03em}
+.step h3{font-size:clamp(20px,1.9vw,26px);margin:16px 0 12px}
+.step p{color:var(--slate-500);font-size:16px}
+
+/* wide band */
+.wide{
+  background:var(--pit);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  text-align:center;
+}
+.wide h2{font-size:clamp(38px,7.4vw,104px);letter-spacing:-.035em}
+.wide h2 span{display:inline-block}
+.wide h2 .b{color:var(--slate-700)}
+.wide p{margin:28px auto 0;color:var(--slate-300);max-width:56ch;font-size:17px}
+
+/* pricing */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2vw,28px)}
+.plan{border:1px solid var(--rule-hard);padding:clamp(30px,3.4vw,52px);display:flex;flex-direction:column}
+.plan.core{background:var(--white);color:var(--black);border-color:var(--white)}
+.plan h3{font-size:clamp(26px,3vw,40px)}
+.plan .price{font-family:var(--display);font-size:clamp(30px,3.6vw,46px);margin-top:20px;letter-spacing:-.03em}
+.plan .price small{font-family:var(--body);font-size:15px;font-weight:600;letter-spacing:0;text-transform:none}
+.plan ul{list-style:none;margin:28px 0 32px;display:grid;gap:12px}
+.plan li{font-size:16px;padding-left:22px;position:relative;color:var(--slate-300)}
+.plan.core li{color:var(--slate-800)}
+.plan li::before{content:"";position:absolute;left:0;top:9px;width:11px;height:1px;background:currentColor;opacity:.5}
+.plan .foot{margin-top:auto}
+.plan .soon{
+  font-family:var(--cond);font-size:13px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--slate-500);border:1px solid var(--rule-hard);padding:12px 18px 10px;display:inline-block;
+}
+.plan.core .btn{width:100%;text-align:center;background:var(--black);color:var(--white)}
+.plan .badge{
+  font-family:var(--cond);font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--slate-500);margin-bottom:18px;display:block;
+}
+.plan.core .badge{color:var(--slate-700)}
+
+/* support */
+.support{border-top:1px solid var(--rule)}
+.support .cols{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,80px)}
+.support h2{font-size:clamp(30px,4.2vw,54px)}
+.support p{color:var(--slate-300);margin-top:24px;font-size:17px}
+.helpgrid{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.help{background:var(--black);padding:26px 28px}
+.help .name{font-family:var(--display);font-size:19px;text-transform:uppercase;letter-spacing:-.01em}
+.help .desc{color:var(--slate-500);font-size:15px;margin-top:8px}
+.help .act{
+  display:inline-block;margin-top:14px;font-family:var(--cond);font-weight:700;font-size:15px;
+  letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--rule-hard);padding-bottom:2px;
+}
+.help .act:hover{border-color:var(--white)}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--rule);padding:24px 0}
+.faq summary{
+  list-style:none;cursor:pointer;display:flex;align-items:flex-start;gap:20px;
+  font-family:var(--display);font-size:clamp(17px,1.9vw,23px);text-transform:uppercase;
+  letter-spacing:-.01em;line-height:1.25;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"+";margin-left:auto;color:var(--slate-500);font-family:var(--body);font-weight:400;
+  font-size:26px;line-height:1;transition:transform .2s;
+}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{color:var(--slate-300);margin-top:16px;padding-left:0;max-width:74ch;font-size:16.5px}
+
+/* final */
+.final{border-top:1px solid var(--rule);background:var(--pit);text-align:center;position:relative;overflow:hidden}
+.final::before{
+  content:"";position:absolute;left:50%;top:50%;width:120vw;height:120%;transform:translate(-50%,-50%);
+  background:radial-gradient(ellipse at center,rgba(148,163,184,.10),transparent 62%);pointer-events:none;
+}
+.final .wrap{position:relative;z-index:2}
+.final h2{font-size:clamp(38px,6.6vw,96px)}
+.final p{color:var(--slate-300);margin:26px auto 0;max-width:50ch;font-size:17px}
+.final .btn{margin-top:38px}
+.final .small{margin-top:18px;font-size:14px;color:var(--slate-500)}
+
+/* footer */
+footer{border-top:1px solid var(--rule);padding:64px 0 44px;font-size:15px}
+.fgrid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:40px}
+.fgrid h4{
+  font-family:var(--cond);font-size:13px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--slate-500);margin-bottom:18px;
+}
+.fgrid ul{list-style:none;display:grid;gap:11px}
+.fgrid a{color:var(--slate-300)}
+.fgrid a:hover{color:var(--white)}
+.fbrand p{color:var(--slate-500);margin-top:20px;max-width:34ch;font-size:15px}
+.fbot{
+  margin-top:52px;padding-top:26px;border-top:1px solid var(--rule);
+  display:flex;flex-wrap:wrap;gap:16px;color:var(--slate-700);font-size:13.5px;
+}
+.fbot .r{margin-left:auto}
+
+@media(max-width:900px){
+  .nav ul,.nav .right .signin{display:none}
+  .crisis .wrap,.pillars,.steps,.plans,.mission .cols,.support .cols,.fgrid{grid-template-columns:1fr}
+  .stat{border-left:0;border-top:1px solid var(--rule);padding-left:0;padding-right:0}
+  .stat:first-child{border-top:0}
+  .pillar{border-left:0}
+  .fgrid{gap:34px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="mark">GBUK</a>
+    <ul>
+      <li><a href="#pillars">Features</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#wide">Gyms</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#support">Support</a></li>
+    </ul>
+    <div class="right">
+      <a href="#" class="signin">Sign in</a>
+      <a href="#join" class="btn btn-solid btn-sm">Join the Brotherhood</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-kicker">
+      <span class="line"></span>
+      <span class="eyebrow">UK Wide · Free to join</span>
+    </div>
+    <h1>Find your<br>training crew.<br>Train harder.<br><span class="dim">Gain a brother.</span></h1>
+    <p class="hero-lede">
+      Step into the new culture of gym-going with your squad. GymBrosUK finds the lads already training
+      at your gym this week, plus the ones across the UK who train what you train &mdash; built around your
+      goals, your volume and the nights you actually show up. <strong>Brotherhood over headphones.</strong>
+    </p>
+    <div class="hero-cta">
+      <a href="#join" class="btn btn-solid">Find your crew</a>
+      <a href="#how" class="btn btn-ghost">See how it works</a>
+    </div>
+    <p class="hero-note">Free to join. No gym membership required.</p>
+  </div>
+</div>
+
+<!-- CRISIS -->
+<div class="crisis">
+  <div class="wrap">
+    <div class="stat">
+      <div class="fig">1 in 4</div>
+      <p>UK men have no close friends.<span class="src">Office for National Statistics</span></p>
+    </div>
+    <div class="stat">
+      <div class="fig">40%</div>
+      <p>of men felt isolated in the last month.<span class="src">Reported</span></p>
+    </div>
+    <div class="stat">
+      <div class="fig">3&times;</div>
+      <p>more likely to die by suicide than women.<span class="src">UK figures</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- MISSION -->
+<section class="mission">
+  <div class="wrap cols">
+    <blockquote>The gym builds your body.<br><span>Brotherhood builds your character.</span></blockquote>
+    <div>
+      <p>Walk into any gym in the country and you will find a room full of men standing three feet apart
+      with their headphones in, saying nothing to each other for an hour. Everyone doing the hard thing.
+      Nobody doing it together.</p>
+      <p>GymBrosUK exists to change that. Same gym, same goals, same nights &mdash; put those men in a crew
+      of four and the training gets better, the attendance gets better, and something else gets better too.
+      Show up. Push harder. Have each other's backs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section id="pillars" style="padding-bottom:0">
+  <div class="wrap sec-head">
+    <span class="eyebrow">Three pillars</span>
+    <h2>Everything you need,<br>nothing you don't.</h2>
+  </div>
+</section>
+<div class="pillars">
+  <div class="pillar">
+    <div class="num">01</div>
+    <h3>Crew&nbsp;Finder</h3>
+    <div class="tag">Find the lads you train with</div>
+    <p>Set your gym once and see the brothers already training there this week &mdash; by day, by session.
+    Or go wider and find a crew across your city.</p>
+    <ul>
+      <li>Sorted by goals first, then the nights you train, then how close you are</li>
+      <li>Crews of up to four on the same plan</li>
+      <li>Every level welcome, first session to fifteenth year</li>
+      <li>Message your crew and get a session in the diary</li>
+    </ul>
+  </div>
+  <div class="pillar">
+    <div class="num">02</div>
+    <h3>The&nbsp;Forge</h3>
+    <div class="tag">Milestones, struggles, banter</div>
+    <p>The social heart of it. Put your PR up and let the lads pile in. Or say the thing you haven't
+    said out loud all week and find out you're not the only one.</p>
+    <ul>
+      <li>Post, comment, back your brothers up</li>
+      <li>Photos, milestones straight from The Smith</li>
+      <li>Tagged by topic &mdash; PRs, nutrition, recovery, head space</li>
+      <li>Moderated properly. Report and block, no debate</li>
+    </ul>
+  </div>
+  <div class="pillar">
+    <div class="num">03</div>
+    <h3>The&nbsp;Smith</h3>
+    <div class="tag">Keep the iron honest</div>
+    <p>A workout log that takes ten seconds. Exercises, sets, reps, weight. Then it shows you the line
+    going up, which is the only motivation that never runs out.</p>
+    <ul>
+      <li>Log a session in seconds, edit it later</li>
+      <li>Weekly volume and session count</li>
+      <li>Personal bests tracked automatically</li>
+      <li>Push a new PR straight to The Forge</li>
+    </ul>
+  </div>
+</div>
+
+<!-- HOW -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Three steps.<br>Then you just turn up.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <h3>Build your profile</h3>
+        <p>Your goal, your gym, the nights you train and the kind of session you want. Two minutes,
+        and it reads like a training identity, not a form.</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <h3>Find your crew</h3>
+        <p>We put the closest fits in front of you straight away &mdash; same goals, same schedule,
+        same iron. Up to four of you, one plan.</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <h3>Train with your squad</h3>
+        <p>Get the session in the diary, log it in The Smith, share the win in The Forge. Then do it
+        again next week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WIDE -->
+<section id="wide" class="wide">
+  <div class="wrap">
+    <h2><span>Anywhere.</span> <span class="b">Anybro.</span> <span>Anytime.</span></h2>
+    <p>Independent gyms, the big chains, the garage setup at the end of the street. From Glasgow to
+    Brighton, set your gym once and GymBrosUK handles the rest &mdash; wherever you train.</p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Pricing</span>
+      <h2>Belonging is never<br>behind a paywall.</h2>
+      <p>Free Core is the whole brotherhood experience and it stays free, permanently. GymBros+ is an
+      optional set of power tools for the men who want them &mdash; nothing essential is ever locked
+      behind it.</p>
+    </div>
+    <div class="plans">
+      <div class="plan core">
+        <span class="badge">Free Core</span>
+        <h3>Forever free</h3>
+        <div class="price">&pound;0 <small>and it stays that way</small></div>
+        <ul>
+          <li>Crew Finder and crews of up to four</li>
+          <li>Full access to The Forge</li>
+          <li>The Smith workout log and personal bests</li>
+          <li>Messaging with your crew</li>
+          <li>Your own referral link</li>
+        </ul>
+        <div class="foot"><a href="#join" class="btn btn-solid">Start your free Bro profile</a></div>
+      </div>
+      <div class="plan">
+        <span class="badge">GymBros+</span>
+        <h3>Power tools</h3>
+        <div class="price">&pound;9.99 <small>/ month &nbsp;·&nbsp; &pound;79.99 / year</small></div>
+        <ul>
+          <li>Advanced tracking and progress views</li>
+          <li>Private crews</li>
+          <li>Priority when crews are forming</li>
+          <li>Extra tools inside The Forge</li>
+        </ul>
+        <div class="foot"><span class="soon">Coming after launch</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section id="support" class="support">
+  <div class="wrap cols">
+    <div>
+      <span class="eyebrow">If it's a bad one</span>
+      <h2>No shame in saying it out loud.</h2>
+      <p>The Forge is for getting it off your chest, and the lads in there will back you. But if things
+      are darker than that, these people are better than us and they are there right now.</p>
+    </div>
+    <div class="helpgrid">
+      <div class="help">
+        <div class="name">CALM</div>
+        <div class="desc">Campaign Against Living Miserably. Helpline and webchat, 5pm to midnight, every day.</div>
+        <a href="https://www.thecalmzone.net/" class="act" target="_blank" rel="noopener">Go to CALM</a>
+      </div>
+      <div class="help">
+        <div class="name">Andy's Man Club</div>
+        <div class="desc">Free talking groups for men, Mondays at 7pm, all over the UK. #ITSOKAYTOTALK</div>
+        <a href="https://andysmanclub.co.uk/" class="act" target="_blank" rel="noopener">Find a group</a>
+      </div>
+      <div class="help">
+        <div class="name">Samaritans</div>
+        <div class="desc">Free to call, 24 hours a day, 365 days a year, from any phone.</div>
+        <a href="https://www.samaritans.org/" class="act" target="_blank" rel="noopener">Call 116 123</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Straight answers</span>
+      <h2>Before you ask.</h2>
+    </div>
+    <details open>
+      <summary>I'm a beginner. Am I going to look like an idiot?</summary>
+      <div class="a">No. Every level is welcome and your experience is on your profile from the start, so
+      the lads you're put with already know exactly where you are. Plenty of men on here are three weeks
+      in. Most of them will tell you the crew is the reason they're still going.</div>
+    </details>
+    <details>
+      <summary>Is it actually free?</summary>
+      <div class="a">Yes. Free Core is the full brotherhood experience &mdash; Crew Finder, The Forge, The
+      Smith, messaging &mdash; and it stays free permanently. GymBros+ adds optional tools later. Nothing
+      that matters ever sits behind it.</div>
+    </details>
+    <details>
+      <summary>Do I need a gym membership?</summary>
+      <div class="a">No. Independent gyms, chains, home setups &mdash; all fine. Set where you train and
+      GymBrosUK works around it.</div>
+    </details>
+    <details>
+      <summary>Is this a one-off session or an ongoing thing?</summary>
+      <div class="a">Both, but the point is the ongoing one. Crews are built to last &mdash; same lads,
+      same nights, week after week. That's where the real benefit is. If you just want a spotter on
+      Thursday, that works too.</div>
+    </details>
+    <details>
+      <summary>What if there's nobody near me yet?</summary>
+      <div class="a">You'll be told straight away rather than left staring at an empty screen. You can
+      widen your search, join a wider-area crew, or grab your invite link and bring the lads you already
+      train with. Early members shape their own area.</div>
+    </details>
+    <details>
+      <summary>Is my data safe, and who can see my profile?</summary>
+      <div class="a">You control how much of your profile is public. Report and block are built in and
+      taken seriously, community guidelines are shown when you sign up, and your details are never sold
+      on. This is a men's mental health community &mdash; trust is the whole thing.</div>
+    </details>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section id="join" class="final">
+  <div class="wrap">
+    <span class="eyebrow">Join the first 100</span>
+    <h2>Show up.<br>Push harder.<br>Have each other's backs.</h2>
+    <p>Build your profile, find your crew, and stop doing the hard thing on your own.</p>
+    <a href="#" class="btn btn-solid">Join the Brotherhood</a>
+    <p class="small">Free to join. No gym membership required. UK wide.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <a href="#" class="mark">GBUK</a>
+        <p>Solving men's isolation through the gym. Crew Finder, The Forge and The Smith &mdash;
+        free, UK wide.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#pillars">Crew Finder</a></li>
+          <li><a href="#pillars">The Forge</a></li>
+          <li><a href="#pillars">The Smith</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Brotherhood</h4>
+        <ul>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#">Community guidelines</a></li>
+          <li><a href="#support">Get support</a></li>
+          <li><a href="#">Partner gyms</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>&copy; 2026 GymBrosUK. Made in the UK.</span>
+      <span class="r">Brotherhood over headphones.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
