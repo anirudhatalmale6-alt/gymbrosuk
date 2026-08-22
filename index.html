@@ -52,6 +52,37 @@
 .shot .cap .q{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.18;letter-spacing:-.02em}
 .shot .cap .s{font-size:13.5px;color:var(--slate-400);margin-top:8px}
 
+/* The Mission - what GBUK is about, and who we stand with */
+.themission{border-top:1px solid var(--line);background:
+  linear-gradient(180deg,rgba(30,41,59,.35),transparent 60%),var(--bg)}
+.mission-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,4vw,64px);align-items:start}
+.themission h2{font-size:clamp(28px,3.9vw,50px);margin-top:16px;line-height:1.05}
+.themission .lead{margin-top:22px;font-size:clamp(16.5px,1.5vw,19px);color:var(--slate-200);line-height:1.6}
+.themission p{margin-top:16px;font-size:16px}
+.themission .strong{
+  margin-top:24px;font-family:var(--display);font-weight:800;font-size:clamp(17px,1.7vw,21px);
+  color:var(--white);letter-spacing:-.015em;
+}
+.shoutout{
+  background:linear-gradient(180deg,var(--panel-2),var(--panel));
+  border:1px solid var(--line);border-radius:var(--r-xl);
+  padding:clamp(22px,2.6vw,32px);box-shadow:var(--shadow);
+}
+.shoutout h3{margin-top:12px}
+.shoutout > p{margin-top:12px;font-size:15px}
+.org{
+  display:block;margin-top:16px;padding:18px 20px;border-radius:var(--r);
+  background:var(--bg-2);border:1px solid var(--line);
+  transition:border-color .2s,transform .2s cubic-bezier(.2,.7,.3,1),background .2s;
+}
+.org:hover{border-color:var(--line-2);transform:translateY(-2px);background:var(--panel)}
+.org-name{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.02em}
+.org-desc{margin-top:8px;font-size:14px;color:var(--slate-300);line-height:1.55}
+.org-go{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:700;color:var(--slate-200)}
+.org:hover .org-go{color:var(--white)}
+.fineprint{margin-top:18px;font-size:13.5px;color:var(--slate-500)}
+.fineprint a{text-decoration:underline}
+
 .band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
 .band .inner{display:grid;grid-template-columns:repeat(3,1fr)}
 .band .cell{padding:clamp(26px,3.4vw,42px) clamp(14px,2vw,34px);border-left:1px solid var(--line)}
@@ -133,7 +164,7 @@ section.blk{padding:clamp(56px,7vw,104px) 0}
 .faq .a{padding:0 22px 20px;color:var(--slate-300);font-size:15px;max-width:78ch}
 
 @media(max-width:900px){
-  .hero .inner,.mission .inner{grid-template-columns:1fr}
+  .hero .inner,.mission .inner,.mission-grid{grid-template-columns:1fr}
   .shot{aspect-ratio:16/11}
   .band .inner{grid-template-columns:1fr}
   .band .cell{border-left:0;border-top:1px solid var(--line);padding-left:0}
@@ -208,6 +239,56 @@ section.blk{padding:clamp(56px,7vw,104px) 0}
   </div>
 </div>
 
+<!-- THE MISSION -->
+<section class="blk themission" id="mission">
+  <div class="wrap">
+    <div class="mission-grid">
+      <div class="reveal">
+        <span class="eyebrow">The Mission</span>
+        <h2>Solving men's isolation<br>through the gym.</h2>
+        <p class="lead">
+          GymBrosUK isn't a fitness app with a community bolted on. It's the other way round.
+          One in four men in this country have no close friends, and the gym is full of them &mdash;
+          stood three feet apart, headphones in, saying nothing for an hour.
+        </p>
+        <p>
+          We put men who train the same way into crews of up to four. Same goal, same nights, same
+          gym. You get a training crew, somewhere to share the wins and the bad weeks in The Forge,
+          and something honest to measure yourself against in The Smith. The lifting is the excuse.
+          The brotherhood is the point.
+        </p>
+        <p class="strong">Show up. Push harder. Have each other's backs.</p>
+      </div>
+
+      <div class="reveal">
+        <div class="shoutout">
+          <span class="eyebrow">Standing with</span>
+          <h3>Two organisations doing this properly.</h3>
+          <p>We're a gym platform, not a mental health service. These lads are the real thing, and
+          every man who joins GymBrosUK should know their names.</p>
+
+          <a class="org" href="https://andysmanclub.co.uk/" target="_blank" rel="noopener">
+            <div class="org-name">Andy's Man Club</div>
+            <div class="org-desc">Free talking groups for men, every Monday at 7pm, right across the
+            UK. No referral, no waiting list, just turn up. #ITSOKAYTOTALK</div>
+            <span class="org-go">Find your nearest group &rarr;</span>
+          </a>
+
+          <a class="org" href="https://www.thecalmzone.net/" target="_blank" rel="noopener">
+            <div class="org-name">CALM</div>
+            <div class="org-desc">The Campaign Against Living Miserably. Helpline and webchat open
+            from 5pm to midnight, every single day of the year.</div>
+            <span class="org-go">Go to CALM &rarr;</span>
+          </a>
+
+          <p class="fineprint">If it's urgent, Samaritans are on 116 123, free, any time.
+          <a href="support.html">More support &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- STAT BAND -->
 <div class="band">
   <div class="wrap inner">
@@ -278,7 +359,7 @@ section.blk{padding:clamp(56px,7vw,104px) 0}
 <section class="blk mission">
   <div class="wrap inner">
     <div class="reveal">
-      <span class="eyebrow">Our mission</span>
+      <span class="eyebrow">Why crews work</span>
       <h2 style="margin-top:16px">A plan keeps the work honest.<br><span class="g">A bro keeps the plan real.</span></h2>
       <p>
         GymBrosUK pairs you deliberately: a profile earns a plan, and a plan without a Crew drifts.
