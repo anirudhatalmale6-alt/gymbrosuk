@@ -276,10 +276,19 @@ p{color:var(--slate-300)}
   .nav.open{
     display:flex;flex-direction:column;align-items:stretch;gap:2px;
     position:absolute;top:70px;left:0;right:0;padding:14px var(--gut) 20px;
-    background:rgba(8,11,15,.98);border-bottom:1px solid var(--line);
+    background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 24px 40px -20px rgba(0,0,0,.95);
   }
   .burger{display:block}
   .topbar .actions{margin-left:0}
   .g-2,.g-3,.g-4,.g-main,.field-row{grid-template-columns:1fr}
   .foot .cols{grid-template-columns:1fr 1fr}
 }
+/* On a phone the two header buttons don't both fit - Sign in moves into the burger
+   menu so "Join the Brotherhood" is never clipped off the edge of the screen. */
+@media(max-width:520px){
+  .topbar .actions .signin-btn{display:none}
+  .topbar .actions .btn-primary{white-space:nowrap;font-size:12.5px;padding:9px 14px}
+  .topbar .inner{gap:10px}
+  .nav.open .signin-mob{display:block;margin-top:10px;padding-top:12px;border-top:1px solid var(--line)}
+}
+.signin-mob{display:none}

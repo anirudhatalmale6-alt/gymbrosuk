@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Mission — GymBrosUK</title>
+<meta name="description" content="Suicide is the biggest killer of men under 50 in the UK. GymBrosUK exists to put men back in each other's company, using the one place they already go. Standing with Andy's Man Club and CALM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/gbuk.css">
+
+<style>
+/* The Mission page. Shares the design system in gbuk.css. */
+.mhero{position:relative;overflow:hidden;padding:clamp(52px,7vw,104px) 0 clamp(40px,5vw,72px);border-bottom:1px solid var(--line)}
+.mhero::before{
+  content:"";position:absolute;inset:-30% -10% auto -10%;height:150%;pointer-events:none;filter:blur(12px);
+  background:
+    radial-gradient(55% 50% at 20% 12%,rgba(148,163,184,.15),transparent 70%),
+    radial-gradient(45% 40% at 88% 0%,rgba(203,213,225,.07),transparent 72%);
+}
+.mhero .inner{position:relative;z-index:2;max-width:900px}
+.mhero h1{margin-top:18px;font-size:clamp(34px,5.2vw,64px);line-height:1.03}
+.mhero h1 .g{color:var(--slate-500)}
+.mhero .lede{margin-top:24px;font-size:clamp(16.5px,1.5vw,19.5px);color:var(--slate-200);line-height:1.6;max-width:60ch}
+.mhero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+
+.msec{padding:clamp(50px,6.5vw,96px) 0}
+.msec.alt{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mhead{max-width:760px;margin-bottom:clamp(28px,3.6vw,48px)}
+.mhead h2{margin-top:14px}
+.mhead p{margin-top:18px;font-size:17px}
+
+.figs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,20px)}
+.figc{
+  padding:clamp(24px,2.6vw,32px);border-radius:var(--r-lg);border:1px solid var(--line);
+  background:linear-gradient(180deg,var(--panel-2),var(--panel));box-shadow:var(--shadow);
+}
+.figc .n{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:1;font-size:clamp(34px,4.4vw,56px)}
+.figc p{margin-top:14px;font-size:15.5px;color:var(--slate-200);line-height:1.55}
+.figc .src{display:block;margin-top:14px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--slate-700)}
+
+.why{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,4vw,64px);align-items:start}
+.why p{margin-top:16px;font-size:16.5px}
+.why .pull{
+  margin-top:26px;padding:24px 26px;border-radius:var(--r-lg);border:1px solid var(--line-2);
+  background:rgba(148,163,184,.05);
+}
+.why .pull q{font-family:var(--display);font-weight:800;font-size:clamp(18px,2vw,23px);letter-spacing:-.02em;line-height:1.25;quotes:none;color:var(--white)}
+.why .pull .who{display:block;margin-top:12px;font-size:13.5px;color:var(--slate-500)}
+
+.does{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.6vw,20px)}
+.do{padding:clamp(22px,2.4vw,30px);border-radius:var(--r-lg);border:1px solid var(--line);background:var(--panel)}
+.do .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate-500);font-weight:800}
+.do h3{margin-top:12px}
+.do p{margin-top:11px;font-size:15.5px}
+
+.honest{max-width:820px}
+.honest ul{list-style:none;margin-top:24px;display:grid;gap:14px}
+.honest li{position:relative;padding-left:30px;font-size:16px;color:var(--slate-300)}
+.honest li::before{
+  content:"";position:absolute;left:0;top:10px;width:13px;height:2px;background:var(--slate-700);border-radius:2px;
+}
+.honest li b{color:var(--white);font-weight:700}
+
+.mate{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,20px)}
+.mate .m{padding-top:26px;position:relative}
+.mate .m .n{position:absolute;top:0;left:0;font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.14em;color:var(--slate-500)}
+.mate .m .bar{height:2px;background:var(--line-2);border-radius:2px;margin-bottom:18px}
+.mate .m:first-child .bar{background:var(--white)}
+.mate .m:nth-child(2) .bar{background:var(--slate-700)}
+.mate .m h3{margin-bottom:10px}
+.mate .m p{font-size:15.5px}
+
+.helps{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.6vw,20px)}
+.help{
+  padding:clamp(24px,2.6vw,32px);border-radius:var(--r-lg);border:1px solid var(--line);
+  background:linear-gradient(180deg,var(--panel-2),var(--panel));display:flex;flex-direction:column;
+}
+.help .who{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate-500);font-weight:800}
+.help h3{margin-top:12px;font-size:clamp(21px,2.2vw,27px)}
+.help .what{margin-top:14px;font-size:15.5px;color:var(--slate-200);line-height:1.6}
+.help dl{margin-top:18px;display:grid;gap:10px}
+.help .rowline{display:flex;gap:14px;align-items:baseline;border-top:1px solid var(--line);padding-top:10px}
+.help dt{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-500);font-weight:800;min-width:74px}
+.help dd{font-size:15px;color:var(--slate-200)}
+.help .go{margin-top:auto;padding-top:22px}
+
+.urgent{
+  margin-top:clamp(14px,1.6vw,20px);padding:clamp(24px,2.6vw,32px);border-radius:var(--r-lg);
+  border:1px solid var(--line-2);background:var(--bg-2);
+  display:flex;gap:clamp(18px,3vw,44px);align-items:center;flex-wrap:wrap;
+}
+.urgent .t{flex:1;min-width:260px}
+.urgent h3{font-size:clamp(20px,2.2vw,26px)}
+.urgent p{margin-top:10px;font-size:15.5px}
+.urgent .btns{display:flex;gap:10px;flex-wrap:wrap}
+
+.mcta{position:relative;overflow:hidden;text-align:center;background:var(--bg-2);border-top:1px solid var(--line);padding:clamp(56px,7vw,104px) 0}
+.mcta::before{content:"";position:absolute;left:50%;top:50%;width:120vw;height:150%;transform:translate(-50%,-50%);background:radial-gradient(ellipse at center,rgba(148,163,184,.11),transparent 62%)}
+.mcta .inner{position:relative;z-index:2}
+.mcta h2{font-size:clamp(28px,4.4vw,56px)}
+.mcta p{margin:20px auto 0;max-width:50ch;font-size:17px}
+.mcta .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+
+@media(max-width:900px){
+  .figs,.does,.mate,.helps,.why{grid-template-columns:1fr}
+}
+</style>
+
+</head>
+<body><div style="background:#1E293B;border-bottom:1px solid rgba(148,163,184,.25);padding:9px 16px;text-align:center;font:600 13px/1.5 Manrope,sans-serif;color:#CBD5E1">PREVIEW &mdash; design only. Everyone in here is invented so the screens have something in them.</div>
+
+<header class="topbar">
+  <div class="wrap inner">
+    <a href="index.html" class="brand">
+      <span class="mark">GB</span>
+      <span class="name">GymBrosUK</span>
+    </a>
+
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <a href="mission.html" class="active">The Mission</a>
+      <a href="crew.html" >The Crew</a>
+      <a href="forge.html" >The Forge</a>
+      <a href="smith.html" >The Smith</a>
+      <a href="quick-sessions.html" >Quick Sessions</a>
+      
+    </nav>
+
+    <div class="actions">
+      
+        <a class="iconbtn" href="notifications.html" aria-label="Notifications" title="Notifications">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+          
+        </a>
+        <a class="iconbtn" href="messages.html" aria-label="Messages" title="Messages">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          
+        </a>
+        <a class="btn btn-ghost btn-sm" href="dashboard.html">Dashboard</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+<!-- HERO -->
+<section class="mhero">
+  <div class="wrap inner reveal">
+    <span class="eyebrow">The Mission</span>
+    <h1>Every gym in Britain is full of men<br><span class="g">who aren't talking to anyone.</span></h1>
+    <p class="lede">
+      GymBrosUK exists for one reason. Men in this country are lonelier than they will ever admit,
+      and it is killing them. We're not going to fix that with a leaflet. We're going to do it in
+      the one place men already turn up to every week.
+    </p>
+    <div class="ctas">
+      <a href="signup.html" class="btn btn-primary">Join the Brotherhood</a>
+      <a href="#help" class="btn btn-ghost">If you're struggling right now &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- THE NUMBERS -->
+<section class="msec">
+  <div class="wrap">
+    <div class="mhead reveal">
+      <span class="eyebrow">Why this matters</span>
+      <h2>The numbers nobody<br>says out loud.</h2>
+      <p>
+        We're not going to dress this up. This is what men's isolation in the UK actually looks like,
+        and it's the reason this platform exists rather than another workout tracker.
+      </p>
+    </div>
+
+    <div class="figs">
+      <div class="figc reveal">
+        <div class="n">Under 50</div>
+        <p>Suicide is the single biggest killer of men under 50 in the UK.
+        <span class="src">Office for National Statistics</span></p>
+      </div>
+      <div class="figc reveal">
+        <div class="n">3&times;</div>
+        <p>Men die by suicide around three times as often as women &mdash; 17.6 per 100,000 against
+        5.7 in 2024.<span class="src">ONS, England and Wales, 2024</span></p>
+      </div>
+      <div class="figc reveal">
+        <div class="n">1 in 4</div>
+        <p>A quarter of UK men are in touch with their mates less than once a month.
+        <span class="src">Movember Foundation</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THE GYM -->
+<section class="msec alt">
+  <div class="wrap why">
+    <div class="reveal">
+      <span class="eyebrow">Why the gym</span>
+      <h2 style="margin-top:14px">Men don't open up<br>across a table.</h2>
+      <p>
+        Ask a bloke to sit down opposite you and talk about his feelings and he'll find somewhere else
+        to be. Put him next to you doing something &mdash; a set, a walk, a car engine &mdash; and
+        he'll tell you things he's never said to anyone. Shoulder to shoulder, not face to face.
+      </p>
+      <p>
+        That's the whole idea. The gym is already in his week. He's already going. He's just going
+        alone, headphones in, three feet from four other men doing exactly the same thing.
+      </p>
+      <p>
+        We're not asking him to join a support group or download a wellbeing app. We're asking him
+        who he's training with on Tuesday. Everything else comes from that.
+      </p>
+    </div>
+
+    <div class="reveal">
+      <div class="pull">
+        <q>The lifting is the excuse. The brotherhood is the point.</q>
+        <span class="who">What GymBrosUK is built on</span>
+      </div>
+      <div class="pull">
+        <q>You don't have to be struggling to need people. You just have to be a bloke on your own.</q>
+        <span class="who">Why it's for every man, not just the ones in trouble</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO ABOUT IT -->
+<section class="msec">
+  <div class="wrap">
+    <div class="mhead reveal">
+      <span class="eyebrow">What we actually do</span>
+      <h2>Not awareness. Attendance.</h2>
+      <p>
+        Every part of GymBrosUK is built to get one man into another man's company, on a regular
+        night, in a real gym. That's the measure. Not likes.
+      </p>
+    </div>
+
+    <div class="does">
+      <div class="do reveal">
+        <div class="k">The Crew</div>
+        <h3>Four men, one plan, same nights</h3>
+        <p>Crews are capped at four on purpose. Big groups let a man hide in them. In a four you get
+        noticed the week you don't show up &mdash; and that's the week it counts.</p>
+      </div>
+      <div class="do reveal">
+        <div class="k">Live sessions</div>
+        <h3>Something on tonight</h3>
+        <p>Crews put their sessions on the board at each gym and anyone can sign up, right up to an
+        hour before it starts. No waiting weeks to be introduced to anyone. Turn up Tuesday.</p>
+      </div>
+      <div class="do reveal">
+        <div class="k">The Forge</div>
+        <h3>Somewhere to say it</h3>
+        <p>Wins, PBs, and the weeks that were a write-off. Men who post the bad ones get backed, not
+        scrolled past. The guidelines are enforced for exactly that reason.</p>
+      </div>
+      <div class="do reveal">
+        <div class="k">The Smith</div>
+        <h3>Progress you can see</h3>
+        <p>Honest numbers on the lifts. Not to make anyone feel small, but because a man who can see
+        himself getting stronger keeps coming back &mdash; and the crew is what he comes back to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE'RE NOT -->
+<section class="msec alt">
+  <div class="wrap honest reveal">
+    <span class="eyebrow">Being straight with you</span>
+    <h2 style="margin-top:14px">What GymBrosUK isn't.</h2>
+    <ul>
+      <li><b>We're not a mental health service.</b> Nobody here is a clinician, and we'd be doing men
+      a disservice to pretend otherwise. What we are is company, on a Tuesday night, week after week.</li>
+      <li><b>We're not a replacement for help.</b> If a man is in a dark place he needs people who are
+      trained for it. The organisations below are, and they're free.</li>
+      <li><b>We don't take the dark stuff lightly.</b> If someone says he's struggling in The Forge,
+      the guidelines are clear &mdash; take it seriously, back him, point him at real support. Mocking
+      it gets an account removed.</li>
+      <li><b>We're not making money out of lonely men.</b> Bro is free, for everyone, for life. That
+      isn't a launch offer.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- IF A MATE'S STRUGGLING -->
+<section class="msec">
+  <div class="wrap">
+    <div class="mhead reveal">
+      <span class="eyebrow">If you're worried about a mate</span>
+      <h2>You don't need the<br>right words.</h2>
+      <p>
+        Most men say nothing because they're scared of saying it wrong. You won't. Here's all it takes.
+      </p>
+    </div>
+
+    <div class="mate">
+      <div class="m reveal">
+        <span class="n">01</span>
+        <div class="bar"></div>
+        <h3>Ask him twice</h3>
+        <p>"You alright?" gets "yeah, fine" every time. Ask again, differently. "No, seriously &mdash;
+        how are you doing?" The second ask is the one that gets an answer.</p>
+      </div>
+      <div class="m reveal">
+        <span class="n">02</span>
+        <div class="bar"></div>
+        <h3>Don't fix it</h3>
+        <p>You don't need advice. Let him talk and don't jump in with solutions. Being heard by
+        someone who isn't in a hurry does more than anything you could suggest.</p>
+      </div>
+      <div class="m reveal">
+        <span class="n">03</span>
+        <div class="bar"></div>
+        <h3>Go back to him</h3>
+        <p>Message him on Thursday. Ask him to train on Saturday. The point isn't the conversation,
+        it's that he isn't on his own after it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STANDING WITH -->
+<section class="msec alt" id="help">
+  <div class="wrap">
+    <div class="mhead reveal">
+      <span class="eyebrow">Standing with</span>
+      <h2>The people already<br>doing this properly.</h2>
+      <p>
+        We're a gym platform. These are the ones who do the hard end of it, they do it free, and
+        every man who joins GymBrosUK should know their names.
+      </p>
+    </div>
+
+    <div class="helps">
+      <div class="help reveal">
+        <span class="who">Talking groups</span>
+        <h3>Andy's Man Club</h3>
+        <p class="what">Free peer-to-peer talking groups for men, run by men who've been there.
+        No referral, no waiting list, no booking &mdash; you walk in. #ITSOKAYTOTALK</p>
+        <dl>
+          <div class="rowline"><dt>When</dt><dd>Every Monday, 7pm (not bank holidays)</dd></div>
+          <div class="rowline"><dt>Who</dt><dd>Any man over 18</dd></div>
+          <div class="rowline"><dt>Cost</dt><dd>Free, and no need to tell them you're coming</dd></div>
+          <div class="rowline"><dt>Where</dt><dd>Groups across the UK, plus online</dd></div>
+        </dl>
+        <div class="go">
+          <a class="btn btn-primary btn-sm" href="https://andysmanclub.co.uk/groups/" target="_blank" rel="noopener">Find your nearest group</a>
+        </div>
+      </div>
+
+      <div class="help reveal">
+        <span class="who">Helpline and webchat</span>
+        <h3>CALM</h3>
+        <p class="what">The Campaign Against Living Miserably. Free, anonymous and confidential
+        support for anyone affected by suicide or suicidal thoughts &mdash; including if you're
+        worried about someone else.</p>
+        <dl>
+          <div class="rowline"><dt>Phone</dt><dd><a href="tel:0800585858" style="text-decoration:underline">0800 58 58 58</a></dd></div>
+          <div class="rowline"><dt>Open</dt><dd>5pm to midnight, every day of the year</dd></div>
+          <div class="rowline"><dt>Also</dt><dd>Webchat on their site if you'd rather type</dd></div>
+          <div class="rowline"><dt>Cost</dt><dd>Free and anonymous</dd></div>
+        </dl>
+        <div class="go">
+          <a class="btn btn-primary btn-sm" href="https://www.thecalmzone.net/get-support" target="_blank" rel="noopener">Go to CALM</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="urgent reveal">
+      <div class="t">
+        <h3>If it's bad right now</h3>
+        <p>Samaritans are there every hour of every day, free from any phone, and you don't have to
+        be suicidal to ring them. If you or someone else is in immediate danger, call 999 &mdash;
+        don't sit on it.</p>
+      </div>
+      <div class="btns">
+        <a class="btn btn-primary" href="tel:116123">Call 116 123</a>
+        <a class="btn btn-ghost" href="support.html">All support &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="mcta">
+  <div class="wrap inner reveal">
+    <span class="eyebrow">Get involved</span>
+    <h2 style="margin-top:16px">One less man<br>training on his own.</h2>
+    <p>
+      That's the whole job. If you're already in, the most useful thing you'll do this week is send
+      your invite link to the bloke you know who's gone quiet.
+    </p>
+    <div class="ctas">
+      <a href="signup.html" class="btn btn-primary">Start your free Bro profile</a>
+      <a href="crew.html" class="btn btn-ghost">See who's at your gym &rarr;</a>
+    </div>
+  </div>
+</section>
+
+
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a href="index.html" class="brand"><span class="mark">GB</span><span class="name">GymBrosUK</span></a>
+        <p class="muted" style="margin-top:16px;max-width:34ch;font-size:14.5px">
+          Solving men's isolation through the gym. The Crew, The Forge and The Smith &mdash; free, UK wide.
+        </p>
+      </div>
+      <div>
+        <h4>The app</h4>
+        <ul>
+          <li><a href="crew.html">The Crew</a></li>
+          <li><a href="forge.html">The Forge</a></li>
+          <li><a href="smith.html">The Smith</a></li>
+          <li><a href="quick-sessions.html">Quick Sessions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Brotherhood</h4>
+        <ul>
+          <li><a href="mission.html">The Mission</a></li>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="guidelines.html">Community guidelines</a></li>
+          <li><a href="support.html">Get support</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bot">
+      <span>&copy; 2026 GymBrosUK. Made in the UK.</span>
+      <span class="r">Brotherhood over headphones.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var items = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    items.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{rootMargin:'0px 0px -8% 0px',threshold:.06});
+  items.forEach(function(el,i){
+    el.style.transitionDelay = Math.min(i%6*70,350) + 'ms';
+    io.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>
