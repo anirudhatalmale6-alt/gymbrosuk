@@ -10,6 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="static/css/gbuk.css">
 
+<style>
+/* Two buttons and a name in a narrow side column will not fit on one line.
+   Let the row wrap rather than let it stretch the column. */
+.invite-row{flex-wrap:wrap;row-gap:10px}
+.invite-row .grow{min-width:150px}
+</style>
+
 </head>
 <body><div style="background:#1E293B;border-bottom:1px solid rgba(148,163,184,.25);padding:9px 16px;text-align:center;font:600 13px/1.5 Manrope,sans-serif;color:#CBD5E1">PREVIEW &mdash; design only. Everyone in here is invented so the screens have something in them.</div>
 
@@ -41,9 +48,9 @@
         </a>
         <a class="iconbtn" href="messages.html" aria-label="Messages" title="Messages">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          
+          <span class="dot"></span>
         </a>
-        <a class="btn btn-ghost btn-sm" href="dashboard.html">Dashboard</a>
+        <a class="btn btn-ghost btn-sm dash-btn" href="dashboard.html">Dashboard</a>
       
     </div>
   </div>
@@ -121,14 +128,113 @@
           </div>
           <div class="panel-body">
             
-              <div class="empty" style="padding:28px 20px">
-                <h3>Nothing on at your gym right now</h3>
-                <p>Crew sessions show up here as soon as someone puts one on, and stay open to join
-                until an hour before they start. Put one up and the lads at your gym will see it.</p>
-                <a href="quick-sessions.html" class="btn btn-primary btn-sm">Put a session on</a>
+              
+              <div class="row">
+                <div class="avatar avatar-sm">DA</div>
+                <div class="grow">
+                  <div class="name">
+                    Push day
+                    <span class="meta"> &middot; The Ironworks Four</span>
+                  </div>
+                  <div class="sub">
+                    Fri 28 Aug, 18:30 &middot; Ironworks Strength
+                    &middot; sign-ups close 17:30
+                  </div>
+                </div>
+                <span class="pill pill-quiet">1 space</span>
+                
+                  <form method="post" action="#" data-was="/crew/session/10/signup/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
+                    <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Sign up</button>
+                  </form>
+                
               </div>
+              
+              <div class="row">
+                <div class="avatar avatar-sm">DA</div>
+                <div class="grow">
+                  <div class="name">
+                    Legs
+                    <span class="meta"> &middot; The Ironworks Four</span>
+                  </div>
+                  <div class="sub">
+                    Sun 30 Aug, 06:15 &middot; Ironworks Strength
+                    &middot; sign-ups close 05:15
+                  </div>
+                </div>
+                <span class="pill pill-quiet">1 space</span>
+                
+                  <form method="post" action="#" data-was="/crew/session/11/signup/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
+                    <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Sign up</button>
+                  </form>
+                
+              </div>
+              
+              <div class="row">
+                <div class="avatar avatar-sm">DA</div>
+                <div class="grow">
+                  <div class="name">
+                    Pull day
+                    <span class="meta"> &middot; The Ironworks Four</span>
+                  </div>
+                  <div class="sub">
+                    Tue 1 Sep, 18:00 &middot; Ironworks Strength
+                    &middot; sign-ups close 17:00
+                  </div>
+                </div>
+                <span class="pill pill-quiet">1 space</span>
+                
+                  <form method="post" action="#" data-was="/crew/session/12/signup/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
+                    <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Sign up</button>
+                  </form>
+                
+              </div>
+              
             
 
+            
+              <div style="margin-top:22px;padding-top:18px;border-top:1px solid var(--line)">
+                <div class="eyebrow" style="margin-bottom:12px">Other gyms in Leeds</div>
+                
+                <div class="row">
+                  <div class="grow">
+                    <div class="name">Push day &middot; Walkthrough Gym</div>
+                    <div class="sub">Fri 28 Aug, 18:30 &middot; closes 17:30</div>
+                  </div>
+                  <span class="pill pill-quiet">2 spaces</span>
+                  
+                    <form method="post" action="#" data-was="/crew/session/7/signup/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
+                      <button class="btn btn-ghost btn-sm" type="submit" style="white-space:nowrap">Sign up</button>
+                    </form>
+                  
+                </div>
+                
+                <div class="row">
+                  <div class="grow">
+                    <div class="name">Push day &middot; Walkthrough Gym</div>
+                    <div class="sub">Fri 28 Aug, 18:30 &middot; closes 17:30</div>
+                  </div>
+                  <span class="pill pill-quiet">2 spaces</span>
+                  
+                    <form method="post" action="#" data-was="/crew/session/8/signup/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
+                      <button class="btn btn-ghost btn-sm" type="submit" style="white-space:nowrap">Sign up</button>
+                    </form>
+                  
+                </div>
+                
+                <div class="row">
+                  <div class="grow">
+                    <div class="name">Push day &middot; Walkthrough Gym</div>
+                    <div class="sub">Fri 28 Aug, 18:30 &middot; closes 17:30</div>
+                  </div>
+                  <span class="pill pill-quiet">1 space</span>
+                  
+                    <form method="post" action="#" data-was="/crew/session/9/signup/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
+                      <button class="btn btn-ghost btn-sm" type="submit" style="white-space:nowrap">Sign up</button>
+                    </form>
+                  
+                </div>
+                
+              </div>
             
           </div>
         </section>
@@ -149,7 +255,7 @@
               </div>
               <div class="score"><b>96%</b><span>fit</span></div>
               
-                <form method="post" action="#" data-was="/crew/ask/2/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="EEqojH1t2zATQ6aMfRgiwSFgNxuCDX88sv5f1z6mDnfRdYRWBoc6s8XgN4xHfnaD">
+                <form method="post" action="#" data-was="/crew/ask/2/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
                   <input type="hidden" name="fit_score" value="96">
                   <button class="btn btn-quiet btn-sm" type="submit">Ask him</button>
                 </form>
@@ -164,7 +270,7 @@
               </div>
               <div class="score"><b>82%</b><span>fit</span></div>
               
-                <form method="post" action="#" data-was="/crew/ask/5/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="EEqojH1t2zATQ6aMfRgiwSFgNxuCDX88sv5f1z6mDnfRdYRWBoc6s8XgN4xHfnaD">
+                <form method="post" action="#" data-was="/crew/ask/5/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
                   <input type="hidden" name="fit_score" value="82">
                   <button class="btn btn-quiet btn-sm" type="submit">Ask him</button>
                 </form>
@@ -179,7 +285,7 @@
               </div>
               <div class="score"><b>68%</b><span>fit</span></div>
               
-                <form method="post" action="#" data-was="/crew/ask/3/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="EEqojH1t2zATQ6aMfRgiwSFgNxuCDX88sv5f1z6mDnfRdYRWBoc6s8XgN4xHfnaD">
+                <form method="post" action="#" data-was="/crew/ask/3/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
                   <input type="hidden" name="fit_score" value="68">
                   <button class="btn btn-quiet btn-sm" type="submit">Ask him</button>
                 </form>
@@ -194,7 +300,7 @@
               </div>
               <div class="score"><b>46%</b><span>fit</span></div>
               
-                <form method="post" action="#" data-was="/crew/ask/4/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="EEqojH1t2zATQ6aMfRgiwSFgNxuCDX88sv5f1z6mDnfRdYRWBoc6s8XgN4xHfnaD">
+                <form method="post" action="#" data-was="/crew/ask/4/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
                   <input type="hidden" name="fit_score" value="46">
                   <button class="btn btn-quiet btn-sm" type="submit">Ask him</button>
                 </form>
@@ -208,7 +314,7 @@
         <section class="panel">
           <div class="panel-head">
             <h3>Crew Finder</h3>
-            <span class="more">6 found</span>
+            <span class="more">9 found</span>
           </div>
           <div class="panel-body">
             
@@ -231,7 +337,82 @@
                   <p class="muted" style="margin-top:12px;font-size:14px">Back after two years off. Taking it steady but I turn up.</p>
                   <div style="margin-top:16px;display:flex;gap:8px">
                     
-                      <form method="post" action="#" data-was="/crew/ask/2/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="EEqojH1t2zATQ6aMfRgiwSFgNxuCDX88sv5f1z6mDnfRdYRWBoc6s8XgN4xHfnaD">
+                      <form method="post" action="#" data-was="/crew/ask/2/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
+                        <input type="hidden" name="fit_score" value="96">
+                        <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Ask him</button>
+                      </form>
+                    
+                  </div>
+                </div>
+                
+                <div class="card">
+                  <div style="display:flex;align-items:center;gap:13px">
+                    <div class="avatar avatar-sm">WA</div>
+                    <div style="flex:1;min-width:0">
+                      <div class="name" style="font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Walk Dave</div>
+                      <div class="meta" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Walkthrough Gym</div>
+                    </div>
+                    <div class="score"><b>96%</b><span>fit</span></div>
+                  </div>
+                  <div style="margin-top:14px;display:flex;gap:7px;flex-wrap:wrap">
+                    <span class="pill">Get stronger</span>
+                    <span class="pill pill-quiet">Bit of both</span>
+                    <span class="pill pill-quiet">Same goal as you</span>
+                  </div>
+                  
+                  <div style="margin-top:16px;display:flex;gap:8px">
+                    
+                      <form method="post" action="#" data-was="/crew/ask/20/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
+                        <input type="hidden" name="fit_score" value="96">
+                        <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Ask him</button>
+                      </form>
+                    
+                  </div>
+                </div>
+                
+                <div class="card">
+                  <div style="display:flex;align-items:center;gap:13px">
+                    <div class="avatar avatar-sm">WA</div>
+                    <div style="flex:1;min-width:0">
+                      <div class="name" style="font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Walk Mark</div>
+                      <div class="meta" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Walkthrough Gym</div>
+                    </div>
+                    <div class="score"><b>96%</b><span>fit</span></div>
+                  </div>
+                  <div style="margin-top:14px;display:flex;gap:7px;flex-wrap:wrap">
+                    <span class="pill">Get stronger</span>
+                    <span class="pill pill-quiet">Bit of both</span>
+                    <span class="pill pill-quiet">Same goal as you</span>
+                  </div>
+                  
+                  <div style="margin-top:16px;display:flex;gap:8px">
+                    
+                      <form method="post" action="#" data-was="/crew/ask/21/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
+                        <input type="hidden" name="fit_score" value="96">
+                        <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Ask him</button>
+                      </form>
+                    
+                  </div>
+                </div>
+                
+                <div class="card">
+                  <div style="display:flex;align-items:center;gap:13px">
+                    <div class="avatar avatar-sm">WA</div>
+                    <div style="flex:1;min-width:0">
+                      <div class="name" style="font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Walk Stu</div>
+                      <div class="meta" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Walkthrough Gym</div>
+                    </div>
+                    <div class="score"><b>96%</b><span>fit</span></div>
+                  </div>
+                  <div style="margin-top:14px;display:flex;gap:7px;flex-wrap:wrap">
+                    <span class="pill">Get stronger</span>
+                    <span class="pill pill-quiet">Bit of both</span>
+                    <span class="pill pill-quiet">Same goal as you</span>
+                  </div>
+                  
+                  <div style="margin-top:16px;display:flex;gap:8px">
+                    
+                      <form method="post" action="#" data-was="/crew/ask/22/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
                         <input type="hidden" name="fit_score" value="96">
                         <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Ask him</button>
                       </form>
@@ -256,7 +437,7 @@
                   <p class="muted" style="margin-top:12px;font-size:14px">Powerlifting background, happy to spot and happy to be shouted at.</p>
                   <div style="margin-top:16px;display:flex;gap:8px">
                     
-                      <form method="post" action="#" data-was="/crew/ask/8/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="EEqojH1t2zATQ6aMfRgiwSFgNxuCDX88sv5f1z6mDnfRdYRWBoc6s8XgN4xHfnaD">
+                      <form method="post" action="#" data-was="/crew/ask/8/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
                         <input type="hidden" name="fit_score" value="87">
                         <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Ask him</button>
                       </form>
@@ -281,7 +462,7 @@
                   <p class="muted" style="margin-top:12px;font-size:14px">Powerlifting background, happy to spot and happy to be shouted at.</p>
                   <div style="margin-top:16px;display:flex;gap:8px">
                     
-                      <form method="post" action="#" data-was="/crew/ask/5/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="EEqojH1t2zATQ6aMfRgiwSFgNxuCDX88sv5f1z6mDnfRdYRWBoc6s8XgN4xHfnaD">
+                      <form method="post" action="#" data-was="/crew/ask/5/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
                         <input type="hidden" name="fit_score" value="82">
                         <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Ask him</button>
                       </form>
@@ -306,7 +487,7 @@
                   <p class="muted" style="margin-top:12px;font-size:14px">Here for the company as much as the lifting, if I&#x27;m honest.</p>
                   <div style="margin-top:16px;display:flex;gap:8px">
                     
-                      <form method="post" action="#" data-was="/crew/ask/3/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="EEqojH1t2zATQ6aMfRgiwSFgNxuCDX88sv5f1z6mDnfRdYRWBoc6s8XgN4xHfnaD">
+                      <form method="post" action="#" data-was="/crew/ask/3/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
                         <input type="hidden" name="fit_score" value="68">
                         <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Ask him</button>
                       </form>
@@ -331,7 +512,7 @@
                   <p class="muted" style="margin-top:12px;font-size:14px">Powerlifting background, happy to spot and happy to be shouted at.</p>
                   <div style="margin-top:16px;display:flex;gap:8px">
                     
-                      <form method="post" action="#" data-was="/crew/ask/6/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="EEqojH1t2zATQ6aMfRgiwSFgNxuCDX88sv5f1z6mDnfRdYRWBoc6s8XgN4xHfnaD">
+                      <form method="post" action="#" data-was="/crew/ask/6/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
                         <input type="hidden" name="fit_score" value="66">
                         <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Ask him</button>
                       </form>
@@ -356,7 +537,7 @@
                   <p class="muted" style="margin-top:12px;font-size:14px">Powerlifting background, happy to spot and happy to be shouted at.</p>
                   <div style="margin-top:16px;display:flex;gap:8px">
                     
-                      <form method="post" action="#" data-was="/crew/ask/4/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="EEqojH1t2zATQ6aMfRgiwSFgNxuCDX88sv5f1z6mDnfRdYRWBoc6s8XgN4xHfnaD">
+                      <form method="post" action="#" data-was="/crew/ask/4/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
                         <input type="hidden" name="fit_score" value="46">
                         <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Ask him</button>
                       </form>
@@ -375,6 +556,8 @@
 
         
 
+        
+
         <section class="panel">
           <div class="panel-head"><h3>Your crews</h3></div>
           <div class="panel-body">
@@ -385,10 +568,22 @@
                   <div class="name">The Ironworks Four</div>
                   <div class="sub">4/4 &middot; Ironworks Strength</div>
                 </div>
-                <a href="messages.html" class="btn btn-ghost btn-sm">Messages</a>
+                <a href="crew-detail.html" class="btn btn-ghost btn-sm">Open</a>
               </div>
               
             
+
+            <form method="post" action="#" data-was="/crew/start/" style="margin-top:18px;padding-top:16px;border-top:1px solid var(--line)">
+              <input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
+              <div class="field">
+                <label for="crew_name">Start one</label>
+                <input id="crew_name" name="name" maxlength="60" required
+                       placeholder="Ironworks Strength 6am">
+              </div>
+              <button class="btn btn-primary btn-sm" type="submit">Start a crew</button>
+              <p class="meta" style="margin-top:12px">You start it, then ask the men you already train
+              with to join. Nobody gets put in one without saying yes.</p>
+            </form>
           </div>
         </section>
 
@@ -407,33 +602,33 @@
                   <div class="sub">Get stronger</div>
                 </div>
                 
-                  <form method="post" action="#" data-was="/crew/ask/2/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="EEqojH1t2zATQ6aMfRgiwSFgNxuCDX88sv5f1z6mDnfRdYRWBoc6s8XgN4xHfnaD">
+                  <form method="post" action="#" data-was="/crew/ask/2/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
                     <button class="btn btn-quiet btn-sm" type="submit">Ask him</button>
                   </form>
                 
               </div>
               
               <div class="row">
-                <div class="avatar avatar-sm">NA</div>
+                <div class="avatar avatar-sm">WA</div>
                 <div class="grow">
-                  <div class="name">Nathan</div>
+                  <div class="name">Walk Dave</div>
                   <div class="sub">Get stronger</div>
                 </div>
                 
-                  <form method="post" action="#" data-was="/crew/ask/8/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="EEqojH1t2zATQ6aMfRgiwSFgNxuCDX88sv5f1z6mDnfRdYRWBoc6s8XgN4xHfnaD">
+                  <form method="post" action="#" data-was="/crew/ask/20/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
                     <button class="btn btn-quiet btn-sm" type="submit">Ask him</button>
                   </form>
                 
               </div>
               
               <div class="row">
-                <div class="avatar avatar-sm">RA</div>
+                <div class="avatar avatar-sm">WA</div>
                 <div class="grow">
-                  <div class="name">Rav</div>
-                  <div class="sub">Powerlifting</div>
+                  <div class="name">Walk Mark</div>
+                  <div class="sub">Get stronger</div>
                 </div>
                 
-                  <form method="post" action="#" data-was="/crew/ask/5/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="EEqojH1t2zATQ6aMfRgiwSFgNxuCDX88sv5f1z6mDnfRdYRWBoc6s8XgN4xHfnaD">
+                  <form method="post" action="#" data-was="/crew/ask/21/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="sAq5k2Wa2q5xNsApMh1dkiqmd7O3sQTJEjHcZLnPliiXc5AyqcNM6IB0BBwExGBg">
                     <button class="btn btn-quiet btn-sm" type="submit">Ask him</button>
                   </form>
                 

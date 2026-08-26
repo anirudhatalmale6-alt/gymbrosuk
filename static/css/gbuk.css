@@ -67,7 +67,7 @@ p{color:var(--slate-300)}
 }
 .panel-pad{padding:clamp(20px,2.4vw,30px)}
 .panel-head{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;row-gap:6px;
   padding:18px clamp(20px,2.4vw,26px);border-bottom:1px solid var(--line);
 }
 .panel-head h3{font-size:17px;letter-spacing:-.01em}
@@ -192,6 +192,12 @@ p{color:var(--slate-300)}
 .g-4{grid-template-columns:repeat(4,1fr)}
 .g-main{grid-template-columns:1.55fr .95fr;align-items:start}
 
+/* A grid item will not shrink below the width of its own content unless it is
+   told it may. Without this, one row of buttons that cannot wrap widens its
+   column, widens the grid, and pushes the whole page off the side of the
+   screen - which is exactly what a crew invite did. */
+.shell>*,.grid>*{min-width:0}
+
 /* ---------- tabs ---------- */
 .tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:20px}
 .tabs a{
@@ -271,7 +277,10 @@ p{color:var(--slate-300)}
   .side{position:static;display:none}
   .side.open{display:block}
 }
-@media(max-width:760px){
+/* Was 760px. Between 760 and 900 the five nav links, the logo and the header
+   buttons together are wider than the screen, which pushed every page sideways.
+   Measured, not guessed - at 820px the document was 828px wide. */
+@media(max-width:900px){
   .nav{display:none}
   .nav.open{
     display:flex;flex-direction:column;align-items:stretch;gap:2px;
@@ -287,9 +296,27 @@ p{color:var(--slate-300)}
    menu so "Join the Brotherhood" is never clipped off the edge of the screen. */
 @media(max-width:520px){
   .topbar .actions .signin-btn{display:none}
+  /* Signed in, the same problem: the bell, the messages icon and a Dashboard
+     button do not all fit next to the logo. Dashboard is the first item in the
+     side menu anyway, so it is the one that goes. */
+  .topbar .actions .dash-btn{display:none}
   .topbar .actions .btn-primary{white-space:nowrap;font-size:12.5px;padding:9px 14px}
   .topbar .inner{gap:10px}
   .nav.open .signin-mob{display:block;margin-top:10px;padding-top:12px;border-top:1px solid var(--line)}
+}
+/* Below this the wordmark and "Join the Brotherhood" still fight for the same
+   30 pixels on a small Android. The mark keeps the brand; the words go.
+   Measured at 360px, where the page was 390px wide before this. */
+@media(max-width:430px){
+  .brand .name{font-size:15px}
+  .brand{gap:8px}
+  .topbar .actions .btn-primary{font-size:12px;padding:9px 12px}
+  .topbar .inner{gap:8px}
+}
+/* An old 320px handset. Nothing shrinks far enough, so the wordmark drops and
+   the GB mark carries the brand on its own. */
+@media(max-width:340px){
+  .brand .name{display:none}
 }
 .signin-mob{display:none}
 
