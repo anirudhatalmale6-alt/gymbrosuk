@@ -50,13 +50,15 @@
 </header>
 
 
+
+
 <div class="wrap" style="max-width:640px;padding:clamp(40px,6vw,84px) var(--gut)">
   <span class="eyebrow">Get in touch</span>
   <h1 style="margin-top:14px;font-size:clamp(28px,3.4vw,40px)">Contact</h1>
   <p style="margin-top:14px">Question, problem, or a gym that wants to work with us. It comes straight through.</p>
   
   <form method="post" class="panel panel-pad" style="margin-top:26px;padding:clamp(24px,3vw,34px)">
-    <input type="hidden" name="csrfmiddlewaretoken" value="1MkFzeMXMHCvLqphbVh7uuY2hivdjOfUqZuHqzTpQ59A7amyIVF5okNyiEALADbJ">
+    <input type="hidden" name="csrfmiddlewaretoken" value="r30MYXelRpF6luELM1wD5pnUBPC3wqkz7h46PKE9X0eAIE5a6JNFXc4rRJc4jeoV">
     
       <div class="field">
         <label for="id_name">Name</label><input type="text" name="name" maxlength="80" required id="id_name">
@@ -144,6 +146,23 @@
   items.forEach(function(el,i){
     el.style.transitionDelay = Math.min(i%6*70,350) + 'ms';
     io.observe(el);
+  });
+})();
+
+/* Flash messages: dismissable, and they clear themselves after a while so the
+   page does not sit there wearing an old confirmation. */
+(function(){
+  document.addEventListener('click', function(e){
+    var x = e.target.closest && e.target.closest('.flash-x');
+    if(x){ x.parentNode.remove(); }
+  });
+  document.querySelectorAll('.flash').forEach(function(el){
+    setTimeout(function(){
+      el.style.transition = 'opacity .4s, transform .4s';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(-6px)';
+      setTimeout(function(){ el.remove(); }, 420);
+    }, 7000);
   });
 })();
 </script>

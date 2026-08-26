@@ -50,6 +50,8 @@
 </header>
 
 
+
+
 <div class="wrap shell">
   
 <aside class="side">
@@ -99,9 +101,22 @@
 
   <main>
     <div class="page-head"><div><h1>Notifications</h1><div class="sub">What you've missed. You choose what lands here in your account settings.</div></div>
-    <div class="right"><a href="account.html" class="btn btn-ghost btn-sm">Notification settings</a></div></div>
+    <div class="right" style="display:flex;gap:10px;align-items:center">
+      
+        <form method="post" action="#" data-was="/notifications/read/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="G1aZpsTLnUET1TXPym4ANAn0V7qBik2ymfejgfjztvdno3oeS4lCFn4xb10C586U">
+          <button class="btn btn-quiet btn-sm" type="submit">Mark all read</button>
+        </form>
+      
+      <a href="account.html" class="btn btn-ghost btn-sm">Notification settings</a>
+    </div></div>
     <section class="panel"><div class="panel-body">
       
+        
+        <div class="row">
+          <div class="avatar avatar-sm">TO</div>
+          <div class="grow"><div class="name">Tom W wants to train with you</div><div class="sub">1 minute ago</div></div>
+          <span class="pill">New</span>
+        </div>
         
         <div class="row">
           <div class="avatar avatar-sm">GB</div>
@@ -192,6 +207,23 @@
   items.forEach(function(el,i){
     el.style.transitionDelay = Math.min(i%6*70,350) + 'ms';
     io.observe(el);
+  });
+})();
+
+/* Flash messages: dismissable, and they clear themselves after a while so the
+   page does not sit there wearing an old confirmation. */
+(function(){
+  document.addEventListener('click', function(e){
+    var x = e.target.closest && e.target.closest('.flash-x');
+    if(x){ x.parentNode.remove(); }
+  });
+  document.querySelectorAll('.flash').forEach(function(el){
+    setTimeout(function(){
+      el.style.transition = 'opacity .4s, transform .4s';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(-6px)';
+      setTimeout(function(){ el.remove(); }, 420);
+    }, 7000);
   });
 })();
 </script>

@@ -50,6 +50,8 @@
 </header>
 
 
+
+
 <div class="wrap narrow" style="padding:clamp(44px,6vw,88px) 0">
   <span class="eyebrow">If it's a bad one</span>
   <h1 style="margin-top:16px">No shame in saying it out loud.</h1>
@@ -122,6 +124,23 @@
   items.forEach(function(el,i){
     el.style.transitionDelay = Math.min(i%6*70,350) + 'ms';
     io.observe(el);
+  });
+})();
+
+/* Flash messages: dismissable, and they clear themselves after a while so the
+   page does not sit there wearing an old confirmation. */
+(function(){
+  document.addEventListener('click', function(e){
+    var x = e.target.closest && e.target.closest('.flash-x');
+    if(x){ x.parentNode.remove(); }
+  });
+  document.querySelectorAll('.flash').forEach(function(el){
+    setTimeout(function(){
+      el.style.transition = 'opacity .4s, transform .4s';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(-6px)';
+      setTimeout(function(){ el.remove(); }, 420);
+    }, 7000);
   });
 })();
 </script>

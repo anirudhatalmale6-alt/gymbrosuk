@@ -50,6 +50,8 @@
 </header>
 
 
+
+
 <div class="wrap shell">
   
 <aside class="side">
@@ -293,6 +295,11 @@
                   <div class="sub">22 Aug 2026</div>
                 </div>
                 <span class="pill">40kg &times; 10</span>
+                
+                  <form method="post" action="#" data-was="/smith/pb/4/share/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="U4YWxEcUuMR6hcwrwoZb1F8FXqeDqOPDAi2gorCIAnqAEmXQQ6gdTsPcdkOEdCTZ">
+                    <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Share it</button>
+                  </form>
+                
               </div>
               
               <div class="row">
@@ -301,6 +308,11 @@
                   <div class="sub">22 Aug 2026</div>
                 </div>
                 <span class="pill">50kg &times; 8</span>
+                
+                  <form method="post" action="#" data-was="/smith/pb/3/share/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="U4YWxEcUuMR6hcwrwoZb1F8FXqeDqOPDAi2gorCIAnqAEmXQQ6gdTsPcdkOEdCTZ">
+                    <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Share it</button>
+                  </form>
+                
               </div>
               
               <div class="row">
@@ -309,6 +321,11 @@
                   <div class="sub">22 Aug 2026</div>
                 </div>
                 <span class="pill">32kg &times; 10</span>
+                
+                  <form method="post" action="#" data-was="/smith/pb/2/share/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="U4YWxEcUuMR6hcwrwoZb1F8FXqeDqOPDAi2gorCIAnqAEmXQQ6gdTsPcdkOEdCTZ">
+                    <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Share it</button>
+                  </form>
+                
               </div>
               
               <div class="row">
@@ -317,6 +334,11 @@
                   <div class="sub">22 Aug 2026</div>
                 </div>
                 <span class="pill">100kg &times; 10</span>
+                
+                  <form method="post" action="#" data-was="/smith/pb/1/share/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="U4YWxEcUuMR6hcwrwoZb1F8FXqeDqOPDAi2gorCIAnqAEmXQQ6gdTsPcdkOEdCTZ">
+                    <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Share it</button>
+                  </form>
+                
               </div>
               
               <div class="row">
@@ -325,6 +347,11 @@
                   <div class="sub">20 Aug 2026</div>
                 </div>
                 <span class="pill">180kg &times; 8</span>
+                
+                  <form method="post" action="#" data-was="/smith/pb/6/share/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="U4YWxEcUuMR6hcwrwoZb1F8FXqeDqOPDAi2gorCIAnqAEmXQQ6gdTsPcdkOEdCTZ">
+                    <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Share it</button>
+                  </form>
+                
               </div>
               
               <div class="row">
@@ -333,6 +360,11 @@
                   <div class="sub">20 Aug 2026</div>
                 </div>
                 <span class="pill">140kg &times; 10</span>
+                
+                  <form method="post" action="#" data-was="/smith/pb/5/share/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="U4YWxEcUuMR6hcwrwoZb1F8FXqeDqOPDAi2gorCIAnqAEmXQQ6gdTsPcdkOEdCTZ">
+                    <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Share it</button>
+                  </form>
+                
               </div>
               
               <div class="row">
@@ -341,6 +373,11 @@
                   <div class="sub">18 Aug 2026</div>
                 </div>
                 <span class="pill">80kg &times; 8</span>
+                
+                  <form method="post" action="#" data-was="/smith/pb/7/share/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="U4YWxEcUuMR6hcwrwoZb1F8FXqeDqOPDAi2gorCIAnqAEmXQQ6gdTsPcdkOEdCTZ">
+                    <button class="btn btn-quiet btn-sm" type="submit" style="white-space:nowrap">Share it</button>
+                  </form>
+                
               </div>
               
               <p class="meta" style="margin-top:14px">Beat one of these and you can push it straight to
@@ -352,17 +389,32 @@
         <section class="panel" id="add">
           <div class="panel-head"><h3>Add a workout</h3></div>
           <div class="panel-body">
+            <form method="post" action="#" data-was="/smith/log/">
+            <input type="hidden" name="csrfmiddlewaretoken" value="U4YWxEcUuMR6hcwrwoZb1F8FXqeDqOPDAi2gorCIAnqAEmXQQ6gdTsPcdkOEdCTZ">
             <div class="field-row">
-              <div class="field"><label for="d">Date</label><input id="d" type="date"></div>
-              <div class="field"><label for="l">Label</label><input id="l" placeholder="Push day"></div>
+              <div class="field"><label for="d">Date</label>
+                <input id="d" name="date" type="date" value="2026-08-26" max="2026-08-26"></div>
+              <div class="field"><label for="l">Label</label>
+                <input id="l" name="label" maxlength="60" placeholder="Push day"></div>
             </div>
-            <div class="field"><label for="e">Exercise</label><input id="e" placeholder="Bench press"></div>
+            <div class="field"><label for="e">Exercise</label>
+              <input id="e" name="exercise" maxlength="80" required list="known-lifts" placeholder="Bench press">
+              <datalist id="known-lifts">
+                <option value="Back Squat"><option value="Barbell Row"><option value="Bench Press"><option value="Deadlift"><option value="Incline Dumbbell Press"><option value="Pull Up"><option value="Shoulder Press"><option value="Tricep Pushdown">
+              </datalist>
+            </div>
             <div class="field-row">
-              <div class="field"><label for="st">Sets</label><input id="st" type="number" value="4"></div>
-              <div class="field"><label for="rp">Reps</label><input id="rp" type="number" value="8"></div>
+              <div class="field"><label for="st">Sets</label>
+                <input id="st" name="sets" type="number" min="1" max="50" value="4"></div>
+              <div class="field"><label for="rp">Reps</label>
+                <input id="rp" name="reps" type="number" min="1" max="200" value="8"></div>
             </div>
-            <div class="field"><label for="wt">Weight (kg)</label><input id="wt" type="number" value="100"></div>
-            <button class="btn btn-primary btn-block">Save workout</button>
+            <div class="field"><label for="wt">Weight (kg)</label>
+              <input id="wt" name="weight_kg" type="number" step="0.5" min="0" max="1000" value="100"></div>
+            <button class="btn btn-primary btn-block" type="submit">Save workout</button>
+            </form>
+            <p class="meta" style="margin-top:12px">Log another lift on the same date and it joins the
+            same session rather than starting a new one.</p>
           </div>
         </section>
       </div>
@@ -430,6 +482,23 @@
   items.forEach(function(el,i){
     el.style.transitionDelay = Math.min(i%6*70,350) + 'ms';
     io.observe(el);
+  });
+})();
+
+/* Flash messages: dismissable, and they clear themselves after a while so the
+   page does not sit there wearing an old confirmation. */
+(function(){
+  document.addEventListener('click', function(e){
+    var x = e.target.closest && e.target.closest('.flash-x');
+    if(x){ x.parentNode.remove(); }
+  });
+  document.querySelectorAll('.flash').forEach(function(el){
+    setTimeout(function(){
+      el.style.transition = 'opacity .4s, transform .4s';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(-6px)';
+      setTimeout(function(){ el.remove(); }, 420);
+    }, 7000);
   });
 })();
 </script>

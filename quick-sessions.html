@@ -50,6 +50,8 @@
 </header>
 
 
+
+
 <div class="wrap shell">
   
 <aside class="side">
@@ -111,48 +113,64 @@
         <section class="panel">
           <div class="panel-head"><h3>Put a session up</h3></div>
           <div class="panel-body">
+            <form method="post" action="#" data-was="/quick-sessions/post/">
+            <input type="hidden" name="csrfmiddlewaretoken" value="y6EfJZGAMymBMaHl0e665f9qy3B1grvuekIzAM6oS9V59k8KkWn8X2QXOXb23fzQ">
             <div class="field-row">
               <div class="field">
                 <label for="date">Date</label>
-                <input id="date" type="date" value="2026-08-26">
+                <input id="date" name="date" type="date" value="2026-08-26" min="2026-08-26">
               </div>
               <div class="field">
                 <label for="slot">When</label>
-                <select id="slot">
-                  <option value="early">Before 9am</option><option value="morning">Morning</option><option value="lunch">Lunchtime</option><option value="afternoon">Afternoon</option><option value="evening">After 5pm</option><option value="late">After 8pm</option>
+                <select id="slot" name="slot">
+                  <option value="early" >Before 9am</option><option value="morning" >Morning</option><option value="lunch" >Lunchtime</option><option value="afternoon" >Afternoon</option><option value="evening" selected>After 5pm</option><option value="late" >After 8pm</option>
                 </select>
               </div>
             </div>
             <div class="field-row">
               <div class="field">
                 <label for="where">Where</label>
-                <input id="where" value="Ironworks Strength">
+                <input id="where" name="where" maxlength="120" value="Ironworks Strength">
               </div>
               <div class="field">
                 <label for="focus">What are you doing?</label>
-                <input id="focus" placeholder="Leg day">
+                <input id="focus" name="focus" maxlength="60" placeholder="Leg day">
               </div>
             </div>
             <div class="field">
               <label for="note">Anything else</label>
-              <input id="note" placeholder="Happy to spot, first time on this programme">
+              <input id="note" name="note" maxlength="280" placeholder="Happy to spot, first time on this programme">
             </div>
-            <button class="btn btn-primary">Post the session</button>
+            <button class="btn btn-primary" type="submit">Post the session</button>
+            </form>
           </div>
         </section>
 
         <section class="panel">
           <div class="panel-head">
             <h3>Sessions going</h3>
-            <span class="more">0 open</span>
+            <span class="more">1 open</span>
           </div>
           <div class="panel-body">
             
-              <div class="empty">
-                <h3>Nothing on tonight</h3>
-                <p>No one's put a session up near you yet. Post one yourself &mdash; the lads who train
-                at your gym get told about it.</p>
+              
+              <div class="row">
+                <div class="avatar avatar-sm">TO</div>
+                <div class="grow">
+                  <div class="name">Legs, nothing clever &middot; Wed 26 Aug</div>
+                  <div class="sub">
+                    Tom W &middot; After 5pm &middot;
+                    The Iron Works, Leeds
+                  </div>
+                </div>
+                <span class="pill pill-quiet">1 space</span>
+                
+                  <form method="post" action="#" data-was="/quick-sessions/6/join/" class="inline"><input type="hidden" name="csrfmiddlewaretoken" value="y6EfJZGAMymBMaHl0e665f9qy3B1grvuekIzAM6oS9V59k8KkWn8X2QXOXb23fzQ">
+                    <button class="btn btn-quiet btn-sm" type="submit">I'm in</button>
+                  </form>
+                
               </div>
+              
             
           </div>
         </section>
@@ -171,6 +189,15 @@
                 <div class="grow">
                   <div class="name">Marcus</div>
                   <div class="sub">Ironworks Strength</div>
+                </div>
+                <a href="#" class="btn btn-ghost btn-sm">Ask him</a>
+              </div>
+              
+              <div class="row">
+                <div class="avatar avatar-sm">TO</div>
+                <div class="grow">
+                  <div class="name">Tom W</div>
+                  <div class="sub">The Iron Works</div>
                 </div>
                 <a href="#" class="btn btn-ghost btn-sm">Ask him</a>
               </div>
@@ -207,15 +234,6 @@
                 <div class="grow">
                   <div class="name">Callum</div>
                   <div class="sub">Northside Barbell</div>
-                </div>
-                <a href="#" class="btn btn-ghost btn-sm">Ask him</a>
-              </div>
-              
-              <div class="row">
-                <div class="avatar avatar-sm">OW</div>
-                <div class="grow">
-                  <div class="name">Owen</div>
-                  <div class="sub">Ironworks Strength</div>
                 </div>
                 <a href="#" class="btn btn-ghost btn-sm">Ask him</a>
               </div>
@@ -297,6 +315,23 @@
   items.forEach(function(el,i){
     el.style.transitionDelay = Math.min(i%6*70,350) + 'ms';
     io.observe(el);
+  });
+})();
+
+/* Flash messages: dismissable, and they clear themselves after a while so the
+   page does not sit there wearing an old confirmation. */
+(function(){
+  document.addEventListener('click', function(e){
+    var x = e.target.closest && e.target.closest('.flash-x');
+    if(x){ x.parentNode.remove(); }
+  });
+  document.querySelectorAll('.flash').forEach(function(el){
+    setTimeout(function(){
+      el.style.transition = 'opacity .4s, transform .4s';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(-6px)';
+      setTimeout(function(){ el.remove(); }, 420);
+    }, 7000);
   });
 })();
 </script>

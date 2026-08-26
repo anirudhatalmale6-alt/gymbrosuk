@@ -50,12 +50,14 @@
 </header>
 
 
+
+
 <div class="wrap" style="max-width:760px;padding:clamp(36px,5vw,72px) var(--gut)">
   <span class="eyebrow">Step 1 of 1 &middot; about two minutes</span>
   <h1 style="margin-top:14px;font-size:clamp(28px,3.4vw,40px)">Build your training identity</h1>
   <p style="margin-top:14px">This is what Crew Finder works off. Goals first, then the nights you train, then where. You can change any of it later.</p>
   <form method="post" style="margin-top:30px">
-    <input type="hidden" name="csrfmiddlewaretoken" value="DIbs1v7uLPkaRP0aHIMZ7Y6xAiT93Pmx2VluSQeWPdRfdzXreIaX1OV3BEYHkEim">
+    <input type="hidden" name="csrfmiddlewaretoken" value="JnBeOBofLktmyeptkV8Y6oEqjqSWfr6epBFyFoO3RV2QVoQSEDp0YblXzksX2faA">
     <div class="panel panel-pad" style="margin-bottom:16px">
       <h3 style="margin-bottom:18px">What are you after?</h3>
       <div class="field-row">
@@ -254,6 +256,23 @@ Four days a week, in and out in an hour. No messing.</textarea></div>
   items.forEach(function(el,i){
     el.style.transitionDelay = Math.min(i%6*70,350) + 'ms';
     io.observe(el);
+  });
+})();
+
+/* Flash messages: dismissable, and they clear themselves after a while so the
+   page does not sit there wearing an old confirmation. */
+(function(){
+  document.addEventListener('click', function(e){
+    var x = e.target.closest && e.target.closest('.flash-x');
+    if(x){ x.parentNode.remove(); }
+  });
+  document.querySelectorAll('.flash').forEach(function(el){
+    setTimeout(function(){
+      el.style.transition = 'opacity .4s, transform .4s';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(-6px)';
+      setTimeout(function(){ el.remove(); }, 420);
+    }, 7000);
   });
 })();
 </script>

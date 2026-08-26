@@ -50,6 +50,8 @@
 </header>
 
 
+
+
 <div class="wrap" style="max-width:520px;padding:clamp(40px,6vw,80px) var(--gut)">
   <div class="panel panel-pad" style="padding:clamp(26px,3vw,38px)">
     <span class="eyebrow">Welcome back</span>
@@ -57,7 +59,7 @@
     
     <div style="margin-top:26px">
 <form method="post">
-  <input type="hidden" name="csrfmiddlewaretoken" value="TELUqUOvLNQhSidIpbQxTFp3oSfgMbMviRVWhfVXPbnme2aZWbevNvezpekO30Ik">
+  <input type="hidden" name="csrfmiddlewaretoken" value="MZ8hygTlWFBVsHCIArxyzuTMc49RNxJrsdcBp3j92gapPR37U9OArhAjsYJSAlNN">
   
   <div class="field"><label for="id_username">Email</label><input type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username"></div>
   <div class="field"><label for="id_password">Password</label><input type="password" name="password" autocomplete="current-password" required id="id_password"></div>
@@ -130,6 +132,23 @@
   items.forEach(function(el,i){
     el.style.transitionDelay = Math.min(i%6*70,350) + 'ms';
     io.observe(el);
+  });
+})();
+
+/* Flash messages: dismissable, and they clear themselves after a while so the
+   page does not sit there wearing an old confirmation. */
+(function(){
+  document.addEventListener('click', function(e){
+    var x = e.target.closest && e.target.closest('.flash-x');
+    if(x){ x.parentNode.remove(); }
+  });
+  document.querySelectorAll('.flash').forEach(function(el){
+    setTimeout(function(){
+      el.style.transition = 'opacity .4s, transform .4s';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(-6px)';
+      setTimeout(function(){ el.remove(); }, 420);
+    }, 7000);
   });
 })();
 </script>
