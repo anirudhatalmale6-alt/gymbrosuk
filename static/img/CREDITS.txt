@@ -1,0 +1,30 @@
+GymBrosUK - image credits and licensing
+=======================================
+
+All photography on the site is licensed stock, used as a placeholder until
+GymBrosUK's own photographs are available.
+
+Source:  Pexels (https://www.pexels.com)
+Licence: Pexels Licence - https://www.pexels.com/license/
+         Free for commercial use. No attribution required. No permission needed.
+         Photos may be modified.
+
+Files
+-----
+hero-crew.jpg   Pexels photo 6295707. Home page hero panel.
+                Cropped to 4:5 and colour-graded to the GymBrosUK palette.
+
+band-kit.jpg    Pexels photo 32610333. Full-width strip on The Mission page.
+                Cropped to 3:1 and colour-graded to the GymBrosUK palette.
+
+Selection rules applied
+-----------------------
+- No recognisable third-party logos, wordmarks or gym branding in frame.
+- No glossy fitness models. Ordinary men, unposed, in a normal gym.
+- Graded to near-monochrome so photography reads as GymBrosUK's own rather
+  than as stock.
+
+Replacing these
+---------------
+Drop a replacement into this folder using the same filename and dimensions
+(hero-crew.jpg 1100x1376, band-kit.jpg 1800x600). Nothing else needs changing.

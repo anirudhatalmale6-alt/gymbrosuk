@@ -36,19 +36,24 @@
 .hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 .hero .fine{margin-top:16px;font-size:13.5px;color:var(--slate-500)}
 
-/* the photo slot - real men training together, awaiting the client's shots */
+/* the photo slot. Licensed stock, graded to the palette, until the client's own
+   gym photos land - see static/img/CREDITS.txt for the licence. */
 .shot{
   border-radius:var(--r-xl);border:1px solid var(--line);overflow:hidden;position:relative;
   aspect-ratio:4/5;background:linear-gradient(160deg,#141B23,#0A0E13 60%);box-shadow:var(--shadow-lift);
   display:flex;align-items:flex-end;
 }
-.shot::before{
-  content:"";position:absolute;inset:0;
-  background:
-    repeating-linear-gradient(115deg,rgba(148,163,184,.05) 0 2px,transparent 2px 26px),
-    radial-gradient(70% 55% at 50% 22%,rgba(148,163,184,.14),transparent 72%);
+.shot img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%;
 }
-.shot .cap{position:relative;padding:26px;width:100%;background:linear-gradient(180deg,transparent,rgba(5,7,10,.9))}
+.shot::before{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(160deg,rgba(8,11,15,.28),rgba(8,11,15,.62) 78%),
+    radial-gradient(70% 55% at 50% 22%,rgba(148,163,184,.10),transparent 72%);
+}
+.shot .cap{position:relative;z-index:2;padding:26px;width:100%;
+  background:linear-gradient(180deg,transparent,rgba(5,7,10,.82) 45%,rgba(5,7,10,.96))}
 .shot .cap .q{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.18;letter-spacing:-.02em}
 .shot .cap .s{font-size:13.5px;color:var(--slate-400);margin-top:8px}
 
@@ -232,7 +237,9 @@ section.blk{padding:clamp(56px,7vw,104px) 0}
       <p class="fine">Free to join. No gym membership required.</p>
     </div>
 
-    <div class="shot reveal" role="img" aria-label="Two men training together">
+    <div class="shot reveal">
+      <img src="static/img/hero-crew.jpg" width="1100" height="1376" loading="lazy"
+           alt="Two men sat on the floor of a gym after training, neither of them talking.">
       <div class="cap">
         <div class="q">Brotherhood<br>over headphones.</div>
         <div class="s">Real crews, real gyms, from Glasgow to Brighton.</div>

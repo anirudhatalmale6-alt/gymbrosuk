@@ -12,6 +12,12 @@
 
 <style>
 /* The Mission page. Shares the design system in gbuk.css. */
+/* Full-width photo strip between sections. Licensed stock graded to the palette -
+   see static/img/CREDITS.txt. */
+.mband{position:relative;height:clamp(180px,26vw,320px);overflow:hidden;border-block:1px solid var(--line)}
+.mband img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.mband::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(8,11,15,.55),rgba(8,11,15,.2) 40%,rgba(8,11,15,.85))}
 .mhero{position:relative;overflow:hidden;padding:clamp(52px,7vw,104px) 0 clamp(40px,5vw,72px);border-bottom:1px solid var(--line)}
 .mhero::before{
   content:"";position:absolute;inset:-30% -10% auto -10%;height:150%;pointer-events:none;filter:blur(12px);
@@ -231,6 +237,10 @@
     </div>
   </div>
 </section>
+
+<div class="mband" aria-hidden="true">
+  <img src="static/img/band-kit.jpg" width="1800" height="600" loading="lazy" alt="">
+</div>
 
 <!-- WHAT WE DO ABOUT IT -->
 <section class="msec">
