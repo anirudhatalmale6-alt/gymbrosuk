@@ -208,9 +208,14 @@ p{color:var(--slate-300)}
 .tabs a.active{color:var(--white);border-bottom-color:var(--white)}
 
 /* ---------- lists ---------- */
-.row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+/* A row is an avatar, some text, and whatever buttons belong to it. On a narrow
+   column the buttons drop onto their own line rather than squeezing the text
+   into one word per line - which is what happens if the text is simply allowed
+   to shrink to nothing. flex-basis on .grow is what forces the wrap. */
+.row{display:flex;align-items:center;gap:14px;row-gap:10px;flex-wrap:wrap;
+     padding:14px 0;border-bottom:1px solid var(--line)}
 .row:last-child{border-bottom:0}
-.row .grow{flex:1;min-width:0}
+.row .grow{flex:1 1 190px;min-width:0}
 .row .name{font-weight:700;font-size:15px}
 .row .sub{font-size:13px;color:var(--slate-500);margin-top:2px}
 
